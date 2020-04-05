@@ -52,23 +52,25 @@
 
     <View
         android:id="@+id/spacer_left"
-        android:layout_width="150dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:layout_height="6dp"
         android:background="@drawable/spacers"
-        app:layout_constraintEnd_toStartOf="@id/spacer_right"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/login_Button"
+        android:layout_marginStart="30dp"/>
 
     <View
         android:id="@+id/spacer_right"
-        android:layout_width="150dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:layout_height="6dp"
         android:background="@drawable/spacers"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/spacer_left"
-        app:layout_constraintTop_toBottomOf="@id/login_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/login_Button"
+        android:layout_marginEnd="30dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
