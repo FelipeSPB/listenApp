@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ListenApp!</string>
     <string name="login_options">OU ENTRE COM</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="google">GOOGLE</string>
+    <string name="loginBtnTxt">LOGIN</string>
+    <string name="criarContaBtnTxt">CRIAR CONTA</string>
 </resources>
