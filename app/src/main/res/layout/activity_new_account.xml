@@ -31,133 +31,139 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/logoApp" />
 
-    <View
-        android:id="@+id/view_filler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/novaConta"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoApp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoApp"
+        android:layout_marginHorizontal="50dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/user"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/novaConta"
+        android:id="@+id/confirm_Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
-        android:background="@drawable/outlined_button"
+        android:background="@drawable/round_button"
         android:text="@string/criarContaBtnTxt"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/login_Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoApp"
+        android:layout_marginTop="120dp"/>
+
+    <TextView
+        android:id="@+id/toLoginOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/got_account"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_filler" />
+        app:layout_constraintTop_toBottomOf="@+id/confirm_Button"
+        android:layout_marginTop="15dp"/>
 
     <Button
-        android:id="@+id/login_Button"
+        android:id="@+id/toLogin_Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/round_button"
         android:text="@string/loginBtnTxt"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/novaConta"
-        app:layout_constraintBottom_toTopOf="@id/login_options"/>
+        app:layout_constraintTop_toBottomOf="@id/toLoginOption"
+        android:layout_marginTop="5dp"/>
 
     <View
         android:id="@+id/spacer_left"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="8dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="25dp"
         android:background="@drawable/spacers"
         android:backgroundTint="@color/grey_200"
-        app:layout_constraintBottom_toTopOf="@+id/face_Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/login_options"/>
+        app:layout_constraintTop_toBottomOf="@+id/toLogin_Button"
+        android:layout_marginTop="30dp"/>
 
     <View
         android:id="@+id/spacer_right"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="8dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/spacers"
         android:backgroundTint="@color/grey_200"
-        app:layout_constraintBottom_toTopOf="@+id/google_Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/login_options"/>
+        app:layout_constraintTop_toBottomOf="@+id/toLogin_Button"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/login_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
         android:text="@string/login_options"
         android:textSize="20sp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/spacer_right"
-        app:layout_constraintStart_toEndOf="@id/spacer_left" />
+        app:layout_constraintStart_toEndOf="@id/spacer_left"
+        app:layout_constraintTop_toBottomOf="@id/toLogin_Button"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/face_Button"
         style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="160dp"
+        android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_button"
         android:drawableStart="@drawable/ic_facebook_icon"
         android:elevation="2dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="20dp"
         android:text="@string/facebook"
         android:textAlignment="viewEnd"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:backgroundTint="@color/facebook_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_options" />
 
     <Button
         android:id="@+id/google_Button"
         style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="160dp"
+        android:layout_width="170dp"
         android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
         android:background="@drawable/round_button"
         android:drawableStart="@drawable/ic_google"
         android:elevation="2dp"
-        android:paddingStart="15dp"
+        android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="@string/google"
         android:textAlignment="viewEnd"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:backgroundTint="@color/google_Red"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintTop_toBottomOf="@id/login_options" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
