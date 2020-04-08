@@ -33,20 +33,22 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_user"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="50dp"
+        app:layout_constraintBottom_toTopOf="@id/input_pw"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoApp"
-        android:layout_marginHorizontal="50dp">
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/user"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_pw"
@@ -85,6 +87,17 @@
             android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <View
+        android:id="@+id/dynamic_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/confirm_Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_pwrepeat"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/confirm_Button"
         android:layout_width="match_parent"
@@ -97,7 +110,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/toLoginOption"
-        app:layout_constraintTop_toBottomOf="@id/input_pwrepeat"/>
+        app:layout_constraintTop_toBottomOf="@id/dynamic_view"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/toLoginOption"
