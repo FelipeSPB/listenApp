@@ -9,4 +9,6 @@
     <string name="user">Usuário</string>
     <string name="app_logo">APP Logo</string>
     <string name="pw">Senha</string>
+    <string name="pw_repeat">Confirme a Senha</string>
+    <string name="empty_fields_msg">Preencha corretamente os campos</string>
 </resources>
