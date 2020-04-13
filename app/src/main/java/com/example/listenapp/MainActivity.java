@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        newAcc.setOnClickListener(vaPara(NewAccountActivity.class, new Bundle()));
-        //login.setOnClickListener(vaPara(ActVerde.class, pacotePalmeirense));
+        newAcc.setOnClickListener(goTo(NewAccountActivity.class, new Bundle()));
+        login.setOnClickListener(goTo(AccPlaceholder.class, new Bundle()));
 
     }
 
-    private View.OnClickListener vaPara(final Class umaClasse, final Bundle pacote) {
+    private View.OnClickListener goTo(final Class umaClasse, final Bundle pacote) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo" />
+        app:srcCompat="@drawable/ic_logo"/>
 
     <View
         android:id="@+id/logo_detail"
@@ -29,7 +29,7 @@
         android:backgroundTint="@color/grey_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logoApp" />
+        app:layout_constraintTop_toTopOf="@id/logoApp"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/user_field"
@@ -163,8 +163,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/spacer_right"
-        app:layout_constraintStart_toEndOf="@id/spacer_left"
-        />
+        app:layout_constraintStart_toEndOf="@id/spacer_left"/>
 
     <View
         android:id="@+id/spacer_right"
@@ -199,7 +198,7 @@
         app:backgroundTint="@color/facebook_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/google_Button"
@@ -221,14 +220,14 @@
         app:backgroundTint="@color/google_Red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.5"/>
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"
@@ -238,7 +237,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_options" />
+        app:layout_constraintTop_toBottomOf="@+id/login_options"/>
 
 </android.support.constraint.ConstraintLayout>
 
