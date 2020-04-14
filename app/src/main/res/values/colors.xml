@@ -292,4 +292,5 @@
     <color name="dark_bg_light_disabled_text">#80FFFFFF</color>
     <color name="dark_bg_light_hint_text">#80FFFFFF</color>
     <color name="google_Red">#de5246</color>
+    <color name="black_alpha10">#1A000000</color>
 </resources>
