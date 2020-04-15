@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setListeners() {
         newAcc.setOnClickListener(goTo(NewAccountActivity.class, new Bundle()));
-        login.setOnClickListener(goTo(AccPlaceholder.class, new Bundle()));
+        login.setOnClickListener(goTo(LoginActivity.class, new Bundle()));
 
     }
 

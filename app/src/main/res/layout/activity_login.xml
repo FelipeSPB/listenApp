@@ -17,123 +17,86 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo"/>
-
-    <View
-        android:id="@+id/logo_detail"
-        android:layout_width="200dp"
-        android:layout_height="6dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/spacers"
-        android:backgroundTint="@color/grey_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logoApp"/>
+        app:srcCompat="@drawable/ic_logo" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_field"
+        android:id="@+id/input_user_const"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@id/pw_field"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoApp"
         android:layout_marginHorizontal="50dp"
+
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/input_pw_const"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoApp"
         app:layout_constraintVertical_chainStyle="packed">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/input_user"
+            android:id="@+id/user_login_log"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/user"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/pw_field"
+        android:id="@+id/input_pw_const"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_field"
-        app:layout_constraintBottom_toTopOf="@id/pwrepeat_field"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@id/confirm_log_Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_user_const">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/input_pw"
+            android:id="@+id/pw_login_log"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/pw"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/pwrepeat_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pw_field"
-        app:layout_constraintBottom_toTopOf="@id/dynamic_view"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/input_pwrepeat"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/pw_repeat"
-            android:textSize="16sp"/>
-    </android.support.design.widget.TextInputLayout>
-
-    <View
-        android:id="@+id/dynamic_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/confirm_Button"
-        app:layout_constraintTop_toBottomOf="@id/pwrepeat_field"/>
 
     <Button
-        android:id="@+id/confirm_Button"
+        android:id="@+id/confirm_log_Button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="50dp"
         android:background="@drawable/round_button"
-        android:text="@string/criarContaBtnTxt"
+        android:text="@string/loginBtnTxt"
         android:textColor="@color/black"
+        android:layout_marginBottom="5dp"
         android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/toNewAccOption"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dynamic_view"
-        app:layout_constraintBottom_toTopOf="@id/toLoginOption"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/toLoginOption"
+        android:id="@+id/toNewAccOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/got_account"
+        android:text= "@string/new_account"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/toLogin_Button"
-        android:layout_marginTop="15dp"/>
+        app:layout_constraintBottom_toTopOf="@id/toNewAcc_Button"
+        android:layout_marginBottom="5dp"/>
 
     <Button
-        android:id="@+id/toLogin_Button"
+        android:id="@+id/toNewAcc_Button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/round_button"
-        android:text="@string/loginBtnTxt"
+        android:text="@string/criarContaBtnTxt"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/login_options"
@@ -149,7 +112,7 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/spacers"
         android:backgroundTint="@color/grey_200"
-        app:layout_constraintBottom_toTopOf="@+id/face_Button_na"
+        app:layout_constraintBottom_toTopOf="@+id/face_Button_lg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/login_options"/>
 
@@ -174,12 +137,12 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/spacers"
         android:backgroundTint="@color/grey_200"
-        app:layout_constraintBottom_toTopOf="@+id/google_Button_na"
+        app:layout_constraintBottom_toTopOf="@+id/google_Button_lg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/login_options"/>
 
     <Button
-        android:id="@+id/face_Button_na"
+        android:id="@+id/face_Button_lg"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="160dp"
         android:layout_height="50dp"
@@ -201,7 +164,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
-        android:id="@+id/google_Button_na"
+        android:id="@+id/google_Button_lg"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="160dp"
         android:layout_height="50dp"
@@ -230,7 +193,7 @@
         app:layout_constraintGuide_percent="0.5"/>
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/coordinator"
+        android:id="@+id/coordinator_login"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:elevation="10dp"
@@ -238,6 +201,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_options"/>
+
+
 
 </android.support.constraint.ConstraintLayout>
 
