@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccPlaceholder"></activity>
+        <activity android:name=".AccPlaceholder"/>
         <activity android:name=".NewAccountActivity" />
         <activity android:name=".LoginActivity"/>
         <activity android:name=".MainActivity"/>
