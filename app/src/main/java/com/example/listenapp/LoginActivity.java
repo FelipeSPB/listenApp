@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void setClicks() {
-        confirm.setOnClickListener(goTO(AccPlaceholder.class, accInfo));
+        confirm.setOnClickListener(goTO(MainScreen.class, accInfo));
         newAcc.setOnClickListener(goTO(NewAccountActivity.class));
 
     }
