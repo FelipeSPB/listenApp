@@ -39,7 +39,7 @@ public class NewAccountActivity extends AppCompatActivity {
 
     }
     private void setClicks() {
-        confirm.setOnClickListener(goTO(AccPlaceholder.class, accInfo));
+        confirm.setOnClickListener(goTO(MainScreen.class, accInfo));
         login.setOnClickListener(goTO(LoginActivity.class));
 
     }
