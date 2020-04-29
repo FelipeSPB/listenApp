@@ -1,4 +1,4 @@
-package com.example.listenapp;
+package com.example.listenapp.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,21 +12,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.listenapp.R;
+
 import java.util.ArrayList;
 
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment{
 
     RecyclerView hotNews;
     Context mContext;
     LinearLayoutManager layoutManager;
 
+
     public NewsFragment() {
+    }
+
+    public static NewsFragment newInstance(Bundle bundle) {
+        NewsFragment frag = new NewsFragment();
+        frag.setArguments(bundle);
+        return frag;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       return inflater.inflate(R.layout.fragment_news, container, false);
+        return inflater.inflate(R.layout.fragment_news, container, false);
 
     }
     @Override
@@ -47,5 +56,6 @@ public class NewsFragment extends Fragment {
         ArrayList<Integer> hotFeed = new ArrayList<>();
 
     }
+
 
 }
