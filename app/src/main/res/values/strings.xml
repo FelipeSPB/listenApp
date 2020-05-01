@@ -25,4 +25,5 @@
     <string name="act_end_title">Encerrar A Sessão?</string>
     <string name="act_end_msg">Deseja Realmente Encerrar A Sessão?</string>
     <string name="act_end_tag">User Confirmation</string>
+    <string name="news_title">Notícias</string>
 </resources>

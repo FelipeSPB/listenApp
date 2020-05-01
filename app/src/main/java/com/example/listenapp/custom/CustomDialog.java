@@ -3,33 +3,32 @@ package com.example.listenapp.custom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialogFragment;
 
-import com.example.listenapp.R;
 
-public class CustomDialog extends AppCompatDialogFragment {
 
-    Context context;
-    String title, msg;
+public class CustomDialog extends AlertDialog.Builder {
 
-    public CustomDialog(Context context, String title, String msg) {
+    private Context context;
+
+
+    public CustomDialog(Context context, String title, String msg, String positive, String negative) {
+        super(context);
         this.context = context;
-        this.title = title;
-        this.msg = msg;
+        setTitle(title);
+        setMessage(msg);
+        setButtons(positive,negative);
+        create();
+
     }
-    public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(context).setTitle(title).setMessage(msg);
-        dialog.setPositiveButton(getString(R.string.Answer_yes), new DialogInterface.OnClickListener() {
+    public void setButtons(String yes, String no){
+        setPositiveButton(yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Activity activity = (Activity) context;
                 activity.finish();
             }
         });
-        dialog.setNegativeButton(getString(R.string.Answer_no), null);
-        return dialog.create();
+        setNegativeButton(no, null);
     }
-
 }

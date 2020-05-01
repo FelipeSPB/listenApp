@@ -16,8 +16,6 @@ import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
 import com.example.listenapp.fragment.ProfileFragment;
 
-import org.jetbrains.annotations.NotNull;
-
 public class MainScreen extends AppCompatActivity {
 
     final Fragment fNews = NewsFragment.newInstance(new Bundle());
@@ -70,7 +68,6 @@ public class MainScreen extends AppCompatActivity {
             }
         });
     }
-    @NotNull
     private void fragLoad(final Fragment fragment) {
         boolean fragVoltou = fragBack(fragment.getClass().getName());
         if (!fragVoltou) {
@@ -93,8 +90,9 @@ public class MainScreen extends AppCompatActivity {
             return;
         }
         if (selectedFragment instanceof NewsFragment) {
-            new CustomDialog(context, getString(R.string.act_end_title), getString(R.string.act_end_msg))
-                    .show(manager, getString(R.string.act_end_tag));
+            new CustomDialog(context, getString(R.string.act_end_title), getString(R.string.act_end_msg),
+                    getString(R.string.Answer_yes), getString(R.string.Answer_no)).show();
+
         }
         else{
           fragLoad(fNews);
