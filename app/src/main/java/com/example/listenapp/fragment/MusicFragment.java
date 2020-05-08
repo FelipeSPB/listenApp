@@ -1,4 +1,4 @@
-package com.example.listenapp;
+package com.example.listenapp.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,20 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ProfileFragment extends Fragment {
+import com.example.listenapp.R;
 
-    public ProfileFragment() {
+public class MusicFragment extends Fragment {
+
+
+    public static MusicFragment newInstance(Bundle bundle) {
+        MusicFragment frag = new MusicFragment();
+        frag.setArguments(bundle);
+        return frag;
+    }
+
+    public MusicFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       return inflater.inflate(R.layout.fragment_profile, container, false);
+       return inflater.inflate(R.layout.fragment_music, container, false);
 
     }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
+
     }
+
 }
