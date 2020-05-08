@@ -15,14 +15,16 @@ import android.view.ViewGroup;
 
 import com.example.listenapp.R;
 import com.example.listenapp.recycler.AdapterHot;
+import com.example.listenapp.recycler.AdapterNews;
 
 import java.util.ArrayList;
 
 public class NewsFragment extends Fragment{
 
-    RecyclerView hotNews;
-    RecyclerView.LayoutManager layoutManager;
+    RecyclerView hotNews,recyclerNews;
+    RecyclerView.LayoutManager layoutManager, layoutManagerNews;
     AdapterHot adapterHot;
+    AdapterNews adapterNews;
     View view;
     Context mContext;
     String[] dataSet = {
@@ -54,7 +56,6 @@ public class NewsFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = container;
-
         return inflater.inflate(R.layout.fragment_news, container, false);
 
 
@@ -75,6 +76,7 @@ public class NewsFragment extends Fragment{
 
     private void findViews(){
         hotNews = view.findViewById(R.id.recycler_hotnews);
+        recyclerNews = view.findViewById(R.id.recycler_news);
     }
 
     private void recyclerSetup(){
@@ -84,6 +86,10 @@ public class NewsFragment extends Fragment{
         hotNews.setAdapter(adapterHot);
         helper = new PagerSnapHelper();
         helper.attachToRecyclerView(hotNews);
+        layoutManagerNews = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        adapterNews = new AdapterNews(dataSet);
+        recyclerNews.setLayoutManager(layoutManagerNews);
+        recyclerNews.setAdapter(adapterNews);
     }
 
     private void createNewsArray(){

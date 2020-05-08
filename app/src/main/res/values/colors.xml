@@ -293,4 +293,5 @@
     <color name="dark_bg_light_hint_text">#80FFFFFF</color>
     <color name="google_Red">#de5246</color>
     <color name="black_alpha10">#1A000000</color>
+    <color name="grey_700_70a">#B2494949</color>
 </resources>

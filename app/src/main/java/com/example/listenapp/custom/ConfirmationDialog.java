@@ -7,12 +7,12 @@ import android.support.v7.app.AlertDialog;
 
 
 
-public class CustomDialog extends AlertDialog.Builder {
+public class ConfirmationDialog extends AlertDialog.Builder {
 
     private Context context;
 
 
-    public CustomDialog(Context context, String title, String msg, String positive, String negative) {
+    public ConfirmationDialog(Context context, String title, String msg, String positive, String negative) {
         super(context);
         this.context = context;
         setTitle(title);

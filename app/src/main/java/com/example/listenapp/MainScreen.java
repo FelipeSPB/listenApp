@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.listenapp.custom.CustomDialog;
+import com.example.listenapp.custom.ConfirmationDialog;
 import com.example.listenapp.fragment.MusicFragment;
 import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
@@ -20,7 +20,7 @@ public class MainScreen extends AppCompatActivity {
 
     final Fragment fNews = NewsFragment.newInstance(new Bundle());
     final Fragment fMusic = MusicFragment.newInstance(new Bundle());
-    //final Fragment fPlaylist = new UploadFragment();
+    final Fragment fPlay = PlaylistsFragment.newInstance(new Bundle());
     //final Fragment fProfile = new SettingFragment();
     FragmentManager manager = getSupportFragmentManager();
     BottomNavigationView botNav;
@@ -51,14 +51,13 @@ public class MainScreen extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_news:
-                        //fragLoad(fNews);
-                        fragLoad(new NewsFragment());
+                        fragLoad(fNews);
                         break;
                     case R.id.menu_music:
                         fragLoad(new MusicFragment());
                         break;
                     case R.id.menu_playlist:
-                        fragLoad(new PlaylistsFragment());
+                        fragLoad(fPlay);
                         break;
                     case R.id.menu_profile:
                         fragLoad(new ProfileFragment());
@@ -90,7 +89,7 @@ public class MainScreen extends AppCompatActivity {
             return;
         }
         if (selectedFragment instanceof NewsFragment) {
-            new CustomDialog(context, getString(R.string.act_end_title), getString(R.string.act_end_msg),
+            new ConfirmationDialog(context, getString(R.string.act_end_title), getString(R.string.act_end_msg),
                     getString(R.string.Answer_yes), getString(R.string.Answer_no)).show();
 
         }
