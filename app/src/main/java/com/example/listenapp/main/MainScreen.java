@@ -1,15 +1,18 @@
-package com.example.listenapp;
+package com.example.listenapp.main;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import com.example.listenapp.fragment.ProfileFragment;
+import com.example.listenapp.R;
+import com.example.listenapp.fragment.MusicFragment;
+import com.example.listenapp.fragment.NewsFragment;
+import com.example.listenapp.fragment.PlaylistsFragment;
 
 import org.jetbrains.annotations.NotNull;
 

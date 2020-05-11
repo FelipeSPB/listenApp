@@ -1,4 +1,4 @@
-package com.example.listenapp;
+package com.example.listenapp.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.listenapp.R;
 
 import java.util.ArrayList;
 

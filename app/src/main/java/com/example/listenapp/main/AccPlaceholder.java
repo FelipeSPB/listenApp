@@ -1,9 +1,11 @@
-package com.example.listenapp;
+package com.example.listenapp.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.example.listenapp.R;
 
 
 public class AccPlaceholder extends AppCompatActivity {
