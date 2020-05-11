@@ -1,4 +1,4 @@
-package com.example.listenapp;
+package com.example.listenapp.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.listenapp.R;
 import com.example.listenapp.custom.CustomSnackbar;
 
 

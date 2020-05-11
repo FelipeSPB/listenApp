@@ -1,4 +1,4 @@
-package com.example.listenapp;
+package com.example.listenapp.main;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.listenapp.R;
 import com.example.listenapp.custom.ConfirmationDialog;
 import com.example.listenapp.fragment.MusicFragment;
 import com.example.listenapp.fragment.NewsFragment;
