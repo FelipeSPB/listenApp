@@ -41,6 +41,7 @@ public class NewsFragment extends Fragment{
             "Felipe",
             "Gabriel"};
     SnapHelper helper;
+    //filler
 
 
     public NewsFragment() {
