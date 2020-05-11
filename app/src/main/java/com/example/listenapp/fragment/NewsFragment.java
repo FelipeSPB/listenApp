@@ -20,7 +20,26 @@ public class NewsFragment extends Fragment {
 
     RecyclerView hotNews;
     Context mContext;
+
     LinearLayoutManager layoutManager;
+
+    String[] dataSet = {
+            "Rafinha",
+            "Henrique",
+            "Xandão",
+            "Daniel",
+            "Peter Henry",
+            "404",
+            "Giulia",
+            "Lucas",
+            "Eduardo",
+            "Sandro",
+            "Felipe",
+            "Gabriel"};
+    SnapHelper helper;
+    //filler
+
+
 
     public NewsFragment() {
     }

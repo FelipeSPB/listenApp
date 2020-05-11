@@ -13,6 +13,27 @@ import com.example.listenapp.R;
 
 public class PlaylistsFragment extends Fragment {
 
+
+    View view;
+    Context mContext;
+    Button addPlaylist;
+    SearchView searchBar;
+    RecyclerView playlistsRecycler;
+    RecyclerView.LayoutManager layoutManager;
+    AdapterPlay adapterPlay;
+    private int playlistIndex = 0;
+    ArrayList<Playlist> playlists = new ArrayList<>();
+    String[] dataSet = {
+            "Rafinha",
+            "Henrique",
+            "Xandão",
+            "Daniel",
+            "Peter Henry",
+            "404",
+            "Giulia"};
+    //filler
+
+
     public PlaylistsFragment() {
     }
 
