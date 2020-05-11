@@ -9,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.listenapp.AccPlaceholder;
+
 import com.example.listenapp.R;
+import com.example.listenapp.main.AccPlaceholder;
 
 public class AdapterHot extends RecyclerView.Adapter<HotNewsViewHolder> {
     private String[] dataSet;
