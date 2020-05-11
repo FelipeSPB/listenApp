@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.listenapp.R;
+<<<<<<< HEAD:app/src/main/java/com/example/listenapp/main/MainActivity.java
+=======
+import com.example.listenapp.activity.LoginActivity;
+import com.example.listenapp.activity.NewAccountActivity;
+>>>>>>> 57110d862f918e67cd4f3c4f8189bc730a80c757:app/src/main/java/com/example/listenapp/MainActivity.java
 
 public class MainActivity extends AppCompatActivity {
 

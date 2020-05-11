@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 
 import com.example.listenapp.R;
 
+import java.util.ArrayList;
+
+
 public class MusicFragment extends Fragment {
 
 
@@ -25,7 +28,8 @@ public class MusicFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
        return inflater.inflate(R.layout.fragment_music, container, false);
 
     }
