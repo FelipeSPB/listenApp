@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.widget.GridLayoutManager;
+
 
 import com.example.listenapp.R;
 
@@ -18,8 +20,10 @@ import java.util.ArrayList;
 
 public class MusicFragment extends Fragment {
 
+
     public MusicFragment() {
     }
+
 
     @Nullable
     @Override
