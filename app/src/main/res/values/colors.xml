@@ -293,4 +293,9 @@
     <color name="dark_bg_light_hint_text">#80FFFFFF</color>
     <color name="google_Red">#de5246</color>
     <color name="black_alpha10">#1A000000</color>
+    <color name="grey_700_70a">#B2494949</color>   
+
+    <!-- Color for Transparency -->
+    <color name="brown_200_profile_pic">#CCBCAAA4</color>
+
 </resources>

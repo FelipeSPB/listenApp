@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.listenapp.main.CustomSnackbar;
+import com.example.listenapp.custom.CustomSnackbar;
 import com.example.listenapp.R;
 import com.example.listenapp.main.MainScreen;
+
 
 
 public class NewAccountActivity extends AppCompatActivity {
