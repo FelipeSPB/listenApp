@@ -25,11 +25,13 @@ public class Playlist implements Parcelable {
     public Playlist() {
         quantity = 0;
     }
+
     public Playlist(String playlistName, int quantity, @Nullable Integer playlistImage) {
        this.playlistName = playlistName;
        this.quantity = quantity;
        this.playlistImage = playlistImage;
     }
+
     protected Playlist(Parcel in) {
         playlistName = in.readString();
         quantity = in.readInt();
