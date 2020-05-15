@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/example/listenapp/main/NewAccountActivity.java
 package com.example.listenapp.main;
-=======
-package com.example.listenapp.activity;
->>>>>>> 57110d862f918e67cd4f3c4f8189bc730a80c757:app/src/main/java/com/example/listenapp/activity/NewAccountActivity.java
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,15 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD:app/src/main/java/com/example/listenapp/main/NewAccountActivity.java
 
-import com.example.listenapp.R;
-=======
->>>>>>> 57110d862f918e67cd4f3c4f8189bc730a80c757:app/src/main/java/com/example/listenapp/activity/NewAccountActivity.java
 import com.example.listenapp.custom.CustomSnackbar;
 import com.example.listenapp.R;
-import com.example.listenapp.main.MainScreen;
-
 
 
 public class NewAccountActivity extends AppCompatActivity {

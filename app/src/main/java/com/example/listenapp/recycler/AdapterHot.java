@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 
 import com.example.listenapp.R;
-import com.example.listenapp.main.AccPlaceholder;
+import com.example.listenapp.AccPlaceholder;
 
 public class AdapterHot extends RecyclerView.Adapter<HotNewsViewHolder> {
     private String[] dataSet;

@@ -1,8 +1,5 @@
 package com.example.listenapp.main;
-<<<<<<< HEAD:app/src/main/java/com/example/listenapp/main/MainScreen.java
-=======
 
->>>>>>> 57110d862f918e67cd4f3c4f8189bc730a80c757:app/src/main/java/com/example/listenapp/MainScreen.java
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,10 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-<<<<<<< HEAD:app/src/main/java/com/example/listenapp/main/MainScreen.java
-=======
 
->>>>>>> 57110d862f918e67cd4f3c4f8189bc730a80c757:app/src/main/java/com/example/listenapp/MainScreen.java
 import com.example.listenapp.R;
 import com.example.listenapp.custom.ConfirmationDialog;
 import com.example.listenapp.fragment.MusicFragment;

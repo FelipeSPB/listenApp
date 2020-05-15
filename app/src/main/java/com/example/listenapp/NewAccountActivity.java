@@ -1,4 +1,4 @@
-package com.example.listenapp.main;
+package com.example.listenapp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,17 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-import com.example.listenapp.custom.CustomSnackbar;
+public class NewAccountActivity extends AppCompatActivity {
 
-
-import com.example.listenapp.R;
-
-
-
-public class LoginActivity extends AppCompatActivity {
-
-    EditText user, password;
-    Button confirm, newAcc;
+    EditText user, password, passwordRepeat;
+    Button confirm, login;
     Bundle accInfo;
     CoordinatorLayout layout;
 
@@ -32,12 +25,13 @@ public class LoginActivity extends AppCompatActivity {
         setClicks();
     }
     private void findViews() {
-        setContentView(R.layout.activity_login);
-        user = findViewById(R.id.user_login_log);
-        password = findViewById(R.id.pw_login_log);
-        confirm = findViewById(R.id.confirm_log_Button);
-        newAcc = findViewById(R.id.toNewAcc_Button);
-        layout = findViewById(R.id.coordinator_login);
+        setContentView(R.layout.activity_new_account);
+        user = findViewById(R.id.input_user);
+        password = findViewById(R.id.input_pw);
+        passwordRepeat = findViewById(R.id.input_pwrepeat);
+        confirm = findViewById(R.id.confirm_Button);
+        login = findViewById(R.id.toLogin_Button);
+        layout = findViewById(R.id.coordinator);
     }
 
     private void bundleSetup() {
@@ -45,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void setClicks() {
-        confirm.setOnClickListener(goTO(MainScreen.class, accInfo));
-        newAcc.setOnClickListener(goTO(NewAccountActivity.class));
+        confirm.setOnClickListener(goTO(AccPlaceholder.class, accInfo));
+        login.setOnClickListener(goTO(LoginActivity.class));
 
     }
     private View.OnClickListener goTO(final Class umaClasse) {
@@ -62,7 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(user.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
+                if(user.getText().toString().isEmpty() || password.getText().toString().isEmpty() ||
+                        passwordRepeat.getText().toString().isEmpty()){
                     new CustomSnackbar().makeSB(layout, getString(R.string.empty_fields_msg),15,15).show();
                 }
                 else {

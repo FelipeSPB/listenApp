@@ -1,4 +1,4 @@
-package com.example.listenapp.main;
+package com.example.listenapp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,13 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-
-import com.example.listenapp.custom.CustomSnackbar;
-
-
-import com.example.listenapp.R;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void setClicks() {
-        confirm.setOnClickListener(goTO(MainScreen.class, accInfo));
+        confirm.setOnClickListener(goTO(AccPlaceholder.class, accInfo));
         newAcc.setOnClickListener(goTO(NewAccountActivity.class));
 
     }
