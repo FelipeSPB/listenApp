@@ -2,6 +2,7 @@ package com.example.listenapp.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -26,12 +27,14 @@ public class Playlist implements Parcelable {
         quantity = 0;
     }
 
+    @Ignore
     public Playlist(String playlistName, int quantity, @Nullable Integer playlistImage) {
        this.playlistName = playlistName;
        this.quantity = quantity;
        this.playlistImage = playlistImage;
     }
 
+    @Ignore
     protected Playlist(Parcel in) {
         playlistName = in.readString();
         quantity = in.readInt();

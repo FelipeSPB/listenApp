@@ -15,6 +15,8 @@ import android.view.MenuItem;
 
 import com.example.listenapp.R;
 import com.example.listenapp.custom.ConfirmationDialog;
+import com.example.listenapp.data.DatabaseBuilder;
+import com.example.listenapp.data.dao.AccessPlay;
 import com.example.listenapp.fragment.MusicFragment;
 import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
@@ -30,6 +32,7 @@ public class MainScreen extends AppCompatActivity {
     BottomNavigationView botNav;
     CoordinatorLayout layout;
     Context context = this;
+    AccessPlay accessPlay;
 
 
     @Override
@@ -49,6 +52,7 @@ public class MainScreen extends AppCompatActivity {
 
 
     }
+
     private void setListener(){
         botNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,6 +75,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
     }
+
     private void fragLoad(final Fragment fragment) {
         boolean fragVoltou = fragBack(fragment.getClass().getName());
         if (!fragVoltou) {
