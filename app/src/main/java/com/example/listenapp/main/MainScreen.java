@@ -32,7 +32,7 @@ public class MainScreen extends AppCompatActivity {
     BottomNavigationView botNav;
     CoordinatorLayout layout;
     Context context = this;
-    AccessPlay accessPlay;
+
 
 
     @Override
@@ -41,7 +41,7 @@ public class MainScreen extends AppCompatActivity {
         achaViews();
         setListener();
         fragLoad(fNews);
-        //fragLoad(new NewsFragment(), "news");
+
 
     }
 
@@ -62,7 +62,7 @@ public class MainScreen extends AppCompatActivity {
                         fragLoad(fNews);
                         break;
                     case R.id.menu_music:
-                        fragLoad(new MusicFragment());
+                        fragLoad(fMusic);
                         break;
                     case R.id.menu_playlist:
                         fragLoad(fPlay);

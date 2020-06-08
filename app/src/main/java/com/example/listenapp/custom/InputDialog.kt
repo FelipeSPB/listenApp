@@ -16,17 +16,27 @@ class InputDialog(context: Context, title: String = DEFAULT_TEXT, layout: Int
 ) : AlertDialog.Builder(context) {
 
     var view: View = LayoutInflater.from(getContext()).inflate(layout,null)
-   open var textPositive = "OK"
-   open var textNegative = "CANCEL"
+    var textPositive = "OK"
+    var textNegative = "CANCEL"
 
-    var onPositive = DialogInterface.OnClickListener { _, _ -> }
-    var onNegative = DialogInterface.OnClickListener { _, _ -> }
+
+
+    open var positiveListener = DialogInterface.OnClickListener { _, _ -> }
+        set(value) {
+            field = value
+            setPositiveButton(textPositive, positiveListener)
+        }
+    open var negativeListener = DialogInterface.OnClickListener { _, _ -> }
+        set(value) {
+            field = value
+            setNegativeButton(textNegative, negativeListener)
+        }
 
     init {
         setTitle(title)
         setView(view)
-        setPositiveButton(textPositive, onPositive)
-        setNegativeButton(textNegative, onNegative)
+        setPositiveButton(textPositive, positiveListener)
+        setNegativeButton(textNegative, negativeListener)
     }
 
 }
