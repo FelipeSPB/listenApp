@@ -1,6 +1,7 @@
 package com.example.listenapp.fragment;
 
 import android.app.Activity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +19,14 @@ import android.widget.Toast;
 import com.example.listenapp.R;
 import com.example.listenapp.main.LoginActivity;
 import com.example.listenapp.main.MainActivity;
+import com.example.listenapp.viewmodel.ViewModelPlaylist;
+import com.example.listenapp.viewmodel.ViewModelProfile;
 
 public class ProfileFragment extends Fragment {
 
+
+    ViewModelProfile mainModel;
+    Fragment fragment = this;
     Context context;
     View view;
     ImageView userPicture;
@@ -47,7 +53,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mainModel = ViewModelProviders.of(fragment).get(ViewModelProfile.class);
         findViews();
+        mainModel.setUserData(userName,quantityPlaylists);
         setListeners();
     }
 
