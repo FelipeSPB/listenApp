@@ -1,6 +1,8 @@
 package com.example.listenapp.fragment;
 
 
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import com.example.listenapp.recycler.AdapterPlay;
 import com.example.listenapp.viewmodel.ViewModelPlaylist;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import custom.InputDialog;
 
@@ -41,7 +44,7 @@ public class PlaylistsFragment extends Fragment {
     AdapterPlay adapterPlay;
     private int playlistIndex = 0;
     ArrayList<Playlist> playlists = new ArrayList<>();
-    AccessPlay accessPlay;
+
 
     String[] dataSet = {
             "Rafinha",
@@ -81,9 +84,8 @@ public class PlaylistsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mainModel = ViewModelProviders.of(fragment).get(ViewModelPlaylist.class);
-        accessPlay = DatabaseBuilder.getAppDatabase(context).accessPlay();
-        playlists.clear();
-        playlists.addAll(accessPlay.getAll());
+        //playlists.clear();
+        //playlists.addAll();
         findViews();
         setListeners();
         recyclerSetup();
@@ -108,7 +110,9 @@ public class PlaylistsFragment extends Fragment {
             final InputDialog dialog = new InputDialog(context, getString(R.string.new_playlist), R.layout.playlist_create_layout);
             dialog.setPositiveListener((dialogInterface, which) -> {
                 EditText namePlay = dialog.getView().findViewById(R.id.playlist_name);
-                setPlaylists(namePlay.getText().toString());
+                mainModel.setPlaylists(namePlay.getText().toString());
+                updatePlaylists();
+
             });
             dialog.show();
         };
@@ -120,11 +124,12 @@ public class PlaylistsFragment extends Fragment {
         playlistsRecycler.setAdapter(adapterPlay);
     }
 
-    public void setPlaylists(String name){
-        Playlist playlist = new Playlist();
-        playlist.setPlaylistName(name);
-        playlists.add(playlist);
-        accessPlay.insertAll(playlist);
+    public void updatePlaylists(){
+        mainModel.getDataSet().observe((LifecycleOwner) context, set -> {
+            playlists.clear();
+            assert set != null;
+            playlists.addAll(set);
+        });
         adapterPlay.notifyDataSetChanged();
         adapterPlay.updateDataSet();
 
@@ -145,6 +150,5 @@ public class PlaylistsFragment extends Fragment {
             }
         };
     }
-
 
 }
