@@ -1,5 +1,8 @@
 package com.example.listenapp.fragment;
 
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,19 +17,28 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listenapp.R;
+import com.example.listenapp.model.apimodels.Hotspot;
+import com.example.listenapp.model.apimodels.News;
 import com.example.listenapp.recycler.AdapterHot;
 import com.example.listenapp.recycler.AdapterNews;
+import com.example.listenapp.viewmodel.ViewModelNews;
+import com.example.listenapp.viewmodel.ViewModelPlaylist;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class NewsFragment extends Fragment{
 
+    View view;
+    Context context;
+    Fragment fragment = this;
+    ViewModelNews mainModel;
     RecyclerView hotNews,recyclerNews;
     RecyclerView.LayoutManager layoutManager, layoutManagerNews;
     AdapterHot adapterHot;
     AdapterNews adapterNews;
-    View view;
-    Context mContext;
+    ArrayList<Hotspot> hotSpot = new ArrayList<>();
+    ArrayList<News> news = new ArrayList<>();
     String[] dataSet = {
             "Rafinha",
             "Henrique",
@@ -41,8 +53,6 @@ public class NewsFragment extends Fragment{
             "Felipe",
             "Gabriel"};
     SnapHelper helper;
-    //filler
-
 
     public NewsFragment() {
     }
@@ -64,15 +74,32 @@ public class NewsFragment extends Fragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext = context;
+        this.context = context;
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mainModel = ViewModelProviders.of(fragment).get(ViewModelNews.class);
         findViews();
         recyclerSetup();
+        loadAPI();
+
+    }
+
+    private void loadAPI() {
+        mainModel.getNewsSet().observe(fragment, hotspots -> {
+            hotSpot.addAll(hotspots);
+            adapterHot.notifyDataSetChanged();
+
+        });
+        mainModel.getAllNewsSet().observe((LifecycleOwner) context, newsSet -> {
+            news.addAll(newsSet);
+            adapterNews.notifyDataSetChanged();
+        });
+        mainModel.news();
+        mainModel.hotSpot();
     }
 
     private void findViews(){
@@ -81,22 +108,16 @@ public class NewsFragment extends Fragment{
     }
 
     private void recyclerSetup(){
-        layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-        adapterHot = new AdapterHot(dataSet);
+        layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        adapterHot = new AdapterHot(hotSpot);
         hotNews.setLayoutManager(layoutManager);
         hotNews.setAdapter(adapterHot);
         helper = new PagerSnapHelper();
         helper.attachToRecyclerView(hotNews);
-        layoutManagerNews = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-        adapterNews = new AdapterNews(dataSet);
+        layoutManagerNews = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        adapterNews = new AdapterNews(news);
         recyclerNews.setLayoutManager(layoutManagerNews);
         recyclerNews.setAdapter(adapterNews);
     }
-
-    private void createNewsArray(){
-        ArrayList<Integer> hotFeed = new ArrayList<>();
-
-    }
-
 
 }

@@ -8,7 +8,7 @@ import android.os.Parcelable
 
 @SuppressLint("ParcelCreator")
 @Parcelize
-data class HotNewsResponse(
-    @SerializedName("hotspots")
-    val hotspots: MutableSet<Hotspot>
+data class NewsResponse(
+    @SerializedName("news")
+    val news: MutableSet<News>
 ) : Parcelable

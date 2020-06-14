@@ -4,8 +4,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.reflect.KClass
 
-private val gsonConverter: GsonConverterFactory = GsonConverterFactory.create()
 
+private val gsonConverter: GsonConverterFactory = GsonConverterFactory.create()
 class RetroInit(url: String) {
 
     private val retrofit: Retrofit = Retrofit.Builder()
