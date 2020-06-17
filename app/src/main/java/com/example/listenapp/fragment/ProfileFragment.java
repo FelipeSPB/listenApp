@@ -55,7 +55,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mainModel = ViewModelProviders.of(fragment).get(ViewModelProfile.class);
         findViews();
-        mainModel.setUserData(userName,quantityPlaylists);
+        mainModel.setUserData(userPicture,userName,quantityPlaylists);
         setListeners();
     }
 
