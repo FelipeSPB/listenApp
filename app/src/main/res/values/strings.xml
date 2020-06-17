@@ -30,4 +30,8 @@
     <string name="playlists_title">Playlists</string>
     <string name="playlist_search_hint">Procurar Playlist</string>
     <string name="new_playlist">NOVA PLAYLIST</string>
+// facebook
+    <string name="facebook_app_id">752894998585956</string>
+    <string name="fb_login_protocol_scheme">fb752894998585956</string>
+
 </resources>

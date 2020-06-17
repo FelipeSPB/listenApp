@@ -3,18 +3,22 @@ package com.example.listenapp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import com.example.listenapp.custom.CustomSnackbar;
 import com.example.listenapp.R;
 import com.example.listenapp.main.MainScreen;
-
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class NewAccountActivity extends AppCompatActivity {
+
 
     EditText user, password, passwordRepeat;
     Button confirm, login;
@@ -62,7 +66,7 @@ public class NewAccountActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(user.getText().toString().isEmpty() || password.getText().toString().isEmpty() ||
                         passwordRepeat.getText().toString().isEmpty()){
-                    new CustomSnackbar().makeSB(layout, getString(R.string.empty_fields_msg),15,15).show();
+                    Snackbar.make(layout,getString(R.string.empty_fields_msg),Snackbar.LENGTH_SHORT).show();
                 }
                 else {
                     accInfo.putString("USER", user.getText().toString());
