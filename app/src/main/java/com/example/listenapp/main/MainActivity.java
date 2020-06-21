@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.listenapp.R;
-import com.example.listenapp.activity.LoginActivity;
-import com.example.listenapp.activity.NewAccountActivity;
 
 public class MainActivity extends AppCompatActivity {
 

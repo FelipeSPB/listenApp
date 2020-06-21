@@ -1,5 +1,9 @@
 package com.example.listenapp.fragment;
 
+
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,18 +16,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
 
 import com.example.listenapp.R;
+import com.example.listenapp.data.DatabaseBuilder;
+import com.example.listenapp.data.dao.AccessPlay;
 import com.example.listenapp.model.Playlist;
 import com.example.listenapp.recycler.AdapterPlay;
+import com.example.listenapp.viewmodel.ViewModelPlaylist;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import custom.InputDialog;
 
 public class PlaylistsFragment extends Fragment {
 
+    ViewModelPlaylist mainModel;
     View view;
-    Context mContext;
+    Context context;
+    Fragment fragment = this;
     Button addPlaylist;
     SearchView searchBar;
     RecyclerView playlistsRecycler;
@@ -31,6 +44,8 @@ public class PlaylistsFragment extends Fragment {
     AdapterPlay adapterPlay;
     private int playlistIndex = 0;
     ArrayList<Playlist> playlists = new ArrayList<>();
+
+
     String[] dataSet = {
             "Rafinha",
             "Henrique",
@@ -39,7 +54,7 @@ public class PlaylistsFragment extends Fragment {
             "Peter Henry",
             "404",
             "Giulia"};
-    //filler
+
 
     public PlaylistsFragment() {
     }
@@ -57,27 +72,33 @@ public class PlaylistsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_playlists, container, false);
 
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext = context;
+        this.context = context;
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mainModel = ViewModelProviders.of(fragment).get(ViewModelPlaylist.class);
+        //playlists.clear();
+        //playlists.addAll();
         findViews();
         setListeners();
         recyclerSetup();
 
     }
+
     private void findViews(){
         playlistsRecycler = view.findViewById(R.id.recycler_playlists);
         addPlaylist = view.findViewById(R.id.add_playlist_button);
         searchBar = view.findViewById(R.id.playlist_search);
         searchBar.setImeOptions(EditorInfo.IME_ACTION_DONE);
     }
+
     private void setListeners() {
         addPlaylist.setOnClickListener(createPlaylist());
         searchBar.setIconifiedByDefault(false);
@@ -85,31 +106,36 @@ public class PlaylistsFragment extends Fragment {
     }
 
     private View.OnClickListener createPlaylist() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setPlaylists(new Playlist());
-                adapterPlay.notifyDataSetChanged();
-                adapterPlay.updateDataSet();
-                playlistIndex++;
-            }
+        return view -> {
+            final InputDialog dialog = new InputDialog(context, getString(R.string.new_playlist), R.layout.playlist_create_layout);
+            dialog.setPositiveListener((dialogInterface, which) -> {
+                EditText namePlay = dialog.getView().findViewById(R.id.playlist_name);
+                mainModel.setPlaylists(namePlay.getText().toString());
+                updatePlaylists();
+
+            });
+            dialog.show();
         };
     }
     private void recyclerSetup(){
-        layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         adapterPlay = new AdapterPlay(playlists);
         playlistsRecycler.setLayoutManager(layoutManager);
         playlistsRecycler.setAdapter(adapterPlay);
+    }
+
+    public void updatePlaylists(){
+        mainModel.getDataSet().observe(fragment, set -> {
+            playlists.clear();
+            assert set != null;
+            playlists.addAll(set);
+        });
+        adapterPlay.notifyDataSetChanged();
+        adapterPlay.updateDataSet();
 
 
     }
-    private void setPlaylists(final Playlist playlist){
-        playlist.setPlaylistName(dataSet[playlistIndex]);
-        playlist.setQuantity(playlistIndex);
-        playlists.add(playlist);
-        System.out.println(playlists.toString());
 
-    }
     private SearchView.OnQueryTextListener searchInput() {
         return new SearchView.OnQueryTextListener() {
             @Override
@@ -124,6 +150,5 @@ public class PlaylistsFragment extends Fragment {
             }
         };
     }
-
 
 }

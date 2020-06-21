@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import com.example.listenapp.R;
 import com.example.listenapp.custom.ConfirmationDialog;
-import com.example.listenapp.fragment.MusicFragment;
+import com.example.listenapp.fragment.MusicFragmentKT;
 import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
 import com.example.listenapp.fragment.ProfileFragment;
@@ -23,7 +23,7 @@ import com.example.listenapp.fragment.ProfileFragment;
 public class MainScreen extends AppCompatActivity {
 
     final Fragment fNews = NewsFragment.newInstance(new Bundle());
-    final Fragment fMusic = MusicFragment.newInstance(new Bundle());
+    final Fragment fMusic = MusicFragmentKT.Companion.newInstance(new Bundle());
     final Fragment fPlay = PlaylistsFragment.newInstance(new Bundle());
     //final Fragment fProfile = new SettingFragment();
     FragmentManager manager = getSupportFragmentManager();
@@ -32,13 +32,14 @@ public class MainScreen extends AppCompatActivity {
     Context context = this;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         achaViews();
         setListener();
         fragLoad(fNews);
-        //fragLoad(new NewsFragment(), "news");
+
 
     }
 
@@ -49,6 +50,7 @@ public class MainScreen extends AppCompatActivity {
 
 
     }
+
     private void setListener(){
         botNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -58,7 +60,7 @@ public class MainScreen extends AppCompatActivity {
                         fragLoad(fNews);
                         break;
                     case R.id.menu_music:
-                        fragLoad(new MusicFragment());
+                        fragLoad(fMusic);
                         break;
                     case R.id.menu_playlist:
                         fragLoad(fPlay);
@@ -71,6 +73,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
     }
+
     private void fragLoad(final Fragment fragment) {
         boolean fragVoltou = fragBack(fragment.getClass().getName());
         if (!fragVoltou) {

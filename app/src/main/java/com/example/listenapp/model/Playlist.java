@@ -1,23 +1,40 @@
 package com.example.listenapp.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+@Entity(tableName = "playlists")
 public class Playlist implements Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    public int uid;
 
+    @ColumnInfo(name = "playlist_name")
     private String playlistName;
-    private Integer quantity, playlistImage;
+
+    @ColumnInfo(name = "total_music")
+    private Integer quantity;
+
+    @ColumnInfo(name = "playlist_image")
+    private Integer playlistImage;
 
     public Playlist() {
         quantity = 0;
     }
+
+    @Ignore
     public Playlist(String playlistName, int quantity, @Nullable Integer playlistImage) {
        this.playlistName = playlistName;
        this.quantity = quantity;
        this.playlistImage = playlistImage;
     }
+
+    @Ignore
     protected Playlist(Parcel in) {
         playlistName = in.readString();
         quantity = in.readInt();

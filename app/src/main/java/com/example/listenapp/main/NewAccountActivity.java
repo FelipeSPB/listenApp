@@ -1,4 +1,4 @@
-package com.example.listenapp.activity;
+package com.example.listenapp.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,10 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.example.listenapp.custom.CustomSnackbar;
 import com.example.listenapp.R;
-import com.example.listenapp.main.MainScreen;
-
 
 
 public class NewAccountActivity extends AppCompatActivity {
