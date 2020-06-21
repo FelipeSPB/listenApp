@@ -1,28 +1,26 @@
 package com.example.listenapp.recycler;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
 
 
 import com.example.listenapp.R;
-import com.example.listenapp.AccPlaceholder;
-import com.example.listenapp.model.apimodels.Hotspot;
+import com.example.listenapp.model.apimodels.Artist;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class AdapterHot extends RecyclerView.Adapter<HotNewsViewHolder> {
-    private ArrayList<Hotspot> dataSet;
+    private ArrayList<Artist> dataSet;
     Activity activity;
 
-    public AdapterHot(ArrayList<Hotspot> dataSet) {
+    public AdapterHot(ArrayList<Artist> dataSet) {
         this.dataSet = dataSet;
     }
 
@@ -37,9 +35,10 @@ public class AdapterHot extends RecyclerView.Adapter<HotNewsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final HotNewsViewHolder ViewHolder, int position) {
-        final Hotspot hotspot = dataSet.get(position);
-        Picasso.get().load(hotspot.getPicSrc()).into(ViewHolder.newsImage);
-        ViewHolder.textViewContent.setText(hotspot.getDescr());
+        final Artist hotspot = dataSet.get(position);
+        Picasso.get().load("http://www.vagalume.com.br/"+hotspot.formatName()+"/images/profile.jpg").into(ViewHolder.newsImage);
+        System.out.println("http://www.vagalume.com.br/"+hotspot.formatName()+"/images/profile.jpg");
+        ViewHolder.textViewContent.setText(hotspot.getName());
         ViewHolder.textViewContent.setOnClickListener(Click -> {
 
         });
@@ -49,4 +48,5 @@ public class AdapterHot extends RecyclerView.Adapter<HotNewsViewHolder> {
     public int getItemCount() {
         return dataSet.size();
     }
+
 }

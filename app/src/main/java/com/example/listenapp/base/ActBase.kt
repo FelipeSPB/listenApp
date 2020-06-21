@@ -4,23 +4,19 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+import custom.IContext
 
-
-open class ActBase(open val layout: Int = 0) : AppCompatActivity()/*, IPermissionResult*/ {
+open class ActBase(open val layout: Int = 0) : AppCompatActivity(), IPermissionResult, IContext {
 
     open val view: Any? = null
 
     companion object {
         @JvmStatic
         lateinit var currentActivity: AppCompatActivity
-
-        /*@JvmStatic
-        var exceptionHandler = ExceptionHandler()*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //Thread.setDefaultUncaughtExceptionHandler(exceptionHandler)
         intent?.extras?.onExtras()
         if (layout != 0) {
             setContentView(layout)
@@ -40,11 +36,11 @@ open class ActBase(open val layout: Int = 0) : AppCompatActivity()/*, IPermissio
 
     open fun ViewGroup.onView() {}
 
-    /*override var iPermissionRequest: IPermissionRequest? = null
+    override var iPermissionRequest: IPermissionRequest? = null
 
     override fun onRequestPermissionsResult(
         code: Int,
         permissions: Array<out String>,
         results: IntArray
-    ) = requestPermissionsResult(code, permissions, results)*/
+    ) = requestPermissionsResult(code, permissions, results)
 }

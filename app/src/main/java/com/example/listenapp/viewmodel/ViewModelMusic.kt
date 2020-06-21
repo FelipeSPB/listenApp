@@ -22,33 +22,21 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 
-class ViewModelNews: ViewModel() {
+class ViewModelMusic: ViewModel() {
 
-    val newsSet = MutableLiveData<MutableSet<Artist>>()
-    val allNewsSet = MutableLiveData<MutableSet<News>>()
-    private val repository =  RepositoryVagalume()
+    val artists = MutableLiveData<MutableSet<Artist>>()
     private val repositoryFM =  RepositoryLastFM()
 
-    /*fun hotSpot() = CoroutineScope(IO).launch {
-        try {
-            var request = repository.getHotSpot()
-            newsSet.postValue(request.hotspots)
-        } catch (backendException: Exception) {
-          Log.i("LOG", "Erro: "+backendException.message)
-        }
-    }*/
 
-    fun news() = CoroutineScope(IO).launch {
+
+    fun  getArtTop() = CoroutineScope(IO).launch {
         try {
-            allNewsSet.postValue(repository.getNews().news)
+            artists.postValue(repositoryFM.getGeoTop().topartists.artist)
         } catch (backendException: Exception) {
             Log.i("LOG", "Erro: "+backendException.message)
         }
     }
 
-    fun hotSpot() = CoroutineScope(IO).launch {
-        newsSet.postValue(repositoryFM.getGeoTop().topartists.artist)
-    }
 
 
 

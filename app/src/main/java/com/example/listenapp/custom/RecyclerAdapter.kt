@@ -2,9 +2,8 @@ package com.example.listenapp.custom
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-
-import com.example.listenapp.custom.adapter.ItemViewBuilder
-import com.example.listenapp.custom.adapter.RecyclerViewHolder
+import custom.adapter.ItemViewBuilder
+import custom.adapter.RecyclerViewHolder
 
 
 abstract class RecyclerAdapter<Type : RecyclerView.ViewHolder>(var collection: Collection<*>) :

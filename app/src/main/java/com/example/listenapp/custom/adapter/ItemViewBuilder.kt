@@ -1,4 +1,4 @@
-package com.example.listenapp.custom.adapter
+package custom.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.viewbinding.ViewBinding
-import custom.bindView
 
+import custom.IContext
 
 open class RecyclerViewHolder(val builder: ItemViewBuilder<*, *>) :
-        RecyclerView.ViewHolder(builder.build())
+    RecyclerView.ViewHolder(builder.build())
 
-abstract class ItemViewBuilder<Data, Binding : ViewBinding> {
+abstract class ItemViewBuilder<Data, Binding : ViewBinding> : IContext {
 
     abstract val binding: Binding
     lateinit var collection: Collection<Data>
@@ -33,6 +33,4 @@ abstract class ItemViewBuilder<Data, Binding : ViewBinding> {
     fun onBind(position: Int) = binding.onBind(position)
 
     abstract fun Binding.onBind(position: Int)
-
-    inline fun <reified B : ViewBinding> viewBind() = lazy { context.bindView(B::class) }
 }

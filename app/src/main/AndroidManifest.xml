@@ -26,6 +26,7 @@
         <activity android:name=".main.NewAccountActivity" />
         <activity android:name=".main.LoginActivity" />
         <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.WebViewActivity" />
     </application>
 
 </manifest>

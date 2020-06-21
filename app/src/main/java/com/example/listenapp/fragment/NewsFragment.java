@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listenapp.R;
+import com.example.listenapp.model.apimodels.Artist;
 import com.example.listenapp.model.apimodels.Hotspot;
 import com.example.listenapp.model.apimodels.News;
 import com.example.listenapp.recycler.AdapterHot;
@@ -37,7 +38,7 @@ public class NewsFragment extends Fragment{
     RecyclerView.LayoutManager layoutManager, layoutManagerNews;
     AdapterHot adapterHot;
     AdapterNews adapterNews;
-    ArrayList<Hotspot> hotSpot = new ArrayList<>();
+    ArrayList<Artist> hotSpot = new ArrayList<>();
     ArrayList<News> news = new ArrayList<>();
     String[] dataSet = {
             "Rafinha",

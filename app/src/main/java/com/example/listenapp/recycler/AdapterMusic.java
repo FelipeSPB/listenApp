@@ -9,16 +9,16 @@ import android.view.ViewGroup;
 
 import com.example.listenapp.R;
 import com.example.listenapp.model.Playlist;
+import com.example.listenapp.model.apimodels.Artist;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class AdapterMusic extends RecyclerView.Adapter<MusicViewHolder> {
-  //  ArrayList<Playlist> dataSet;
-    // ArrayList<Playlist> dataSetFull;
-    String[] dataSet;
+    ArrayList<Artist> dataSet;
     Activity activity;
 
-    public AdapterMusic(String[] dataSet) {
+    public AdapterMusic(ArrayList<Artist> dataSet) {
         this.dataSet = dataSet;
        // this.dataSetFull = new ArrayList<Artists>(dataSet);
     }
@@ -34,29 +34,19 @@ public class AdapterMusic extends RecyclerView.Adapter<MusicViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MusicViewHolder ViewHolder, int position) {
+        final Artist artist = dataSet.get(position);
+        Picasso.get().load("http://www.vagalume.com.br/"+artist.formatName()+"/images/profile.jpg").into(ViewHolder.artistImage);
+        System.out.println("http://www.vagalume.com.br/"+artist.formatName()+"/images/profile.jpg");
+        ViewHolder.artistName.setText(artist.getName());
+        ViewHolder.cardViewMusic.setOnClickListener(Click -> {
 
-        final String nome = dataSet[position];
-        ViewHolder.artistName.setText(nome);
-        //ViewHolder.textViewQuantity.setText(playlist.getQuantity().toString());
-        /*if (playlist.getPlaylistImage() == null) {
-            ViewHolder.imageView.setImageResource(R.drawable.ic_vinyl_record);
-        }
-        else{
-            ViewHolder.imageView.setImageResource(playlist.getPlaylistImage());
-        }*/
-
-        ViewHolder.cardViewMusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
         });
     }
 
     @Override
     public int getItemCount() {
 
-        return dataSet.length;
+        return dataSet.size();
 
     }
 
