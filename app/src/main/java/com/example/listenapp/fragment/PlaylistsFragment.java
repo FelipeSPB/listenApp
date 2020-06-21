@@ -125,7 +125,9 @@ public class PlaylistsFragment extends Fragment {
     }
 
     public void updatePlaylists(){
-        mainModel.getDataSet().observe((LifecycleOwner) context, set -> {
+
+        mainModel.getDataSet().observe(fragment, set -> {
+
             playlists.clear();
             assert set != null;
             playlists.addAll(set);

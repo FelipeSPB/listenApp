@@ -10,5 +10,5 @@ import android.os.Parcelable
 @Parcelize
 data class HotNewsResponse(
     @SerializedName("hotspots")
-    val hotspots: List<Hotspot>
+    val hotspots: MutableSet<Hotspot>
 ) : Parcelable

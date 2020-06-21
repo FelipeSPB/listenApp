@@ -13,7 +13,7 @@ class NewsViewHolder extends RecyclerView.ViewHolder {
      TextView headline;
      ImageView image;
      CardView cardView;
-    private Activity activity;
+     Activity activity;
 
 
     public NewsViewHolder(View layout) {
