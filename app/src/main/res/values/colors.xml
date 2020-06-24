@@ -298,4 +298,6 @@
     <!-- Color for Transparency -->
     <color name="brown_200_profile_pic">#CCBCAAA4</color>
 
+    <color name="loginColor">#2B3232</color>
+
 </resources>
