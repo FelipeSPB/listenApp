@@ -15,19 +15,30 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             tools:background="@tools:sample/avatars"/>
-
-        <TextView
-            android:id="@+id/cardViewMusic_textField"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_gravity="center|bottom"
-            android:gravity="center"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            android:elevation="5dp"
-            android:textColor="@color/white"
-            android:textSize="28sp"
-            tools:text="Lorem ipsum"/>
+            android:background="@color/black_A85">
+
+            <TextView
+                android:id="@+id/cardViewMusic_textField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:elevation="5dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:maxLines="1"
+                tools:text="Lorem ipsum"/>
+
+        </FrameLayout>
+
+
+
 
     </android.support.v7.widget.CardView>
 

@@ -7,17 +7,7 @@
     tools:context=".fragment.NewsFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/fragtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/news_title"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/frame_hotnews"/>
+
 
     <FrameLayout
         android:id="@+id/frame_hotnews"
@@ -39,6 +29,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
+    <TextView
+        android:id="@+id/fragtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/news_title"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_hotnews"
+        app:layout_constraintBottom_toTopOf="@+id/frame_hotnews"/>
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"

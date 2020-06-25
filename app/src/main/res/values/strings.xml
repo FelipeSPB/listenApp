@@ -26,7 +26,7 @@
     <string name="act_end_title">Encerrar A Sessão?</string>
     <string name="act_end_msg">Deseja Realmente Encerrar A Sessão?</string>
     <string name="act_end_tag">User Confirmation</string>
-    <string name="news_title">Notícias</string>
+    <string name="news_title">Top Notícias</string>
     <string name="playlists_title">Playlists</string>
     <string name="playlist_search_hint">Procurar Playlist</string>
     <string name="new_playlist">NOVA PLAYLIST</string>

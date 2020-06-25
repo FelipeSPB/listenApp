@@ -102,6 +102,8 @@ fun <T : Comparable<T>> listOfRange(iterable: Iterable<T>): MutableList<T> {
 @Suppress("UNCHECKED_CAST") // Converts Pixel value to DensityPixel value
 val <N : Number> N.dp
     get() = (toFloat() * getSystem().displayMetrics.density) as N
+val <N : Number> N.sp
+    get() = (toFloat() * getSystem().displayMetrics.scaledDensity) as N
 
 fun onTextSubmit(block: (String) -> Unit) = object : SearchView.OnQueryTextListener {
     override fun onQueryTextSubmit(dota: String): Boolean {
@@ -168,6 +170,8 @@ fun Context.shareText(text: String) {
 }
 
 infix fun ImageView.setImageFromURL(url: Any?) = Picasso.get().load(url.toString()).into(this)
+
+fun ImageView.setImageFromURLwError(url: Any?, placeholder: Int) = Picasso.get().load(url.toString()).error(placeholder).into(this)
 
 val <T : Parcelable> T.toJson
     get(): String = GsonBuilder().setPrettyPrinting()
