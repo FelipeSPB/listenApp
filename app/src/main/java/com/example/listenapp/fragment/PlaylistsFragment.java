@@ -1,7 +1,7 @@
 package com.example.listenapp.fragment;
 
 
-import android.arch.lifecycle.LifecycleOwner;
+
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -18,16 +18,12 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
-
 import com.example.listenapp.R;
-import com.example.listenapp.data.DatabaseBuilder;
-import com.example.listenapp.data.dao.AccessPlay;
 import com.example.listenapp.model.Playlist;
 import com.example.listenapp.recycler.AdapterPlay;
 import com.example.listenapp.viewmodel.ViewModelPlaylist;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import custom.InputDialog;
 
@@ -42,19 +38,7 @@ public class PlaylistsFragment extends Fragment {
     RecyclerView playlistsRecycler;
     RecyclerView.LayoutManager layoutManager;
     AdapterPlay adapterPlay;
-    private int playlistIndex = 0;
     ArrayList<Playlist> playlists = new ArrayList<>();
-
-
-    String[] dataSet = {
-            "Rafinha",
-            "Henrique",
-            "Xandão",
-            "Daniel",
-            "Peter Henry",
-            "404",
-            "Giulia"};
-
 
     public PlaylistsFragment() {
     }
@@ -84,13 +68,13 @@ public class PlaylistsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mainModel = ViewModelProviders.of(fragment).get(ViewModelPlaylist.class);
-        //playlists.clear();
-        //playlists.addAll();
         findViews();
         setListeners();
         recyclerSetup();
-
     }
+
+
+
 
     private void findViews(){
         playlistsRecycler = view.findViewById(R.id.recycler_playlists);
@@ -122,6 +106,8 @@ public class PlaylistsFragment extends Fragment {
         adapterPlay = new AdapterPlay(playlists);
         playlistsRecycler.setLayoutManager(layoutManager);
         playlistsRecycler.setAdapter(adapterPlay);
+
+
     }
 
     public void updatePlaylists(){
@@ -132,7 +118,6 @@ public class PlaylistsFragment extends Fragment {
         });
         adapterPlay.notifyDataSetChanged();
         adapterPlay.updateDataSet();
-
 
     }
 

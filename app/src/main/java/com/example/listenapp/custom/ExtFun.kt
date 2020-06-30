@@ -17,6 +17,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.viewbinding.ViewBinding
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
 import com.example.listenapp.R
@@ -209,3 +211,14 @@ inline fun <reified T : Parcelable>
 @Suppress("UNCHECKED_CAST")
 val <T : Any> Class<T>.klass: KClass<T>
     get() = this::class as KClass<T>
+
+fun WebView.loadInApp(inApp: Boolean = true) {
+    if (inApp) {
+        webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                view.loadUrl(url)
+                return true
+            }
+        }
+    }
+}

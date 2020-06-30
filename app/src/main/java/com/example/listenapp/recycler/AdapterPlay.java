@@ -47,11 +47,8 @@ public class AdapterPlay extends RecyclerView.Adapter<PlaylistsViewHolder> imple
             ViewHolder.imageView.setImageResource(playlist.getPlaylistImage());
         }
 
-            ViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            ViewHolder.cardView.setOnClickListener(v -> {
 
-                }
             });
     }
 
