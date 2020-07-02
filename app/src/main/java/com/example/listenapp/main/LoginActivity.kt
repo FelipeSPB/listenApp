@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var newAcc: Button
     lateinit var signInButtonGoogle: SignInButton
     lateinit var googleSignInClient: GoogleSignInClient
-    lateinit var signInButtonFacebook: Button
+    lateinit var signInButtonFacebook: LoginButton
     private val loginCode = 300
     lateinit var firebaseAuth: FirebaseAuth
 
@@ -72,8 +72,7 @@ class LoginActivity : AppCompatActivity() {
         signInButtonFacebook = findViewById(R.id.button_facebook)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        LoginManager.getInstance().registerCallback(callbackManager,
-                facebookCallback as FacebookCallback <LoginResult>)
+
 
 
 
@@ -96,7 +95,8 @@ class LoginActivity : AppCompatActivity() {
             googleSignInClient.revokeAccess()
         })
         signInButtonFacebook.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile", "user_friends"))
+            signInButtonFacebook.registerCallback(callbackManager,
+                    facebookCallback as FacebookCallback <LoginResult>)
         }
     }
 

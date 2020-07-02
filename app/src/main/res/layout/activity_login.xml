@@ -182,7 +182,7 @@
 
 
 
-    <Button
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/button_facebook"
         android:layout_width="165dp"
         android:layout_height="55dp"
