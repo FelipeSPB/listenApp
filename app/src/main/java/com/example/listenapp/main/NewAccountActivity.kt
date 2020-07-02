@@ -1,4 +1,4 @@
-package com.example.listenapp.activity
+package com.example.listenapp.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
 import com.example.listenapp.R
-import com.example.listenapp.main.MainScreen
 import com.example.listenapp.viewmodel.NewAccountViewModelViewModel
 import com.google.firebase.auth.FirebaseAuth
 

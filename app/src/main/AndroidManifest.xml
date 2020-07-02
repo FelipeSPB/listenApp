@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
+
         <activity
             android:name=".main.ActSplash"
             android:theme="@style/SplashTheme">
@@ -22,15 +23,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.AccPlaceholder" />
+            android:name=".main.AccPlaceholder"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".activity.NewAccountActivity" />
+            android:name=".main.NewAccountActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".activity.LoginActivity" />
+            android:name=".main.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".main.MainActivity" />
+            android:name=".main.MainActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".main.MainScreen" />
+        <activity android:name=".main.MainScreen"
+            android:screenOrientation="portrait"/>
 
 
 
