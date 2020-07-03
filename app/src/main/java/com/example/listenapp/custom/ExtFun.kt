@@ -1,5 +1,7 @@
 package custom
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
@@ -15,6 +17,8 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.viewbinding.ViewBinding
 import android.widget.*
@@ -205,3 +209,35 @@ inline fun <reified T : Parcelable>
 @Suppress("UNCHECKED_CAST")
 val <T : Any> Class<T>.klass: KClass<T>
     get() = this::class as KClass<T>
+
+
+fun View.animateExpand(
+        expand: Boolean = true,
+        duration: Long = 500,
+        vertical: Boolean = true
+) =
+        AnimatorSet().run {
+            interpolator = AccelerateDecelerateInterpolator()
+            play(
+                    ValueAnimator.ofInt(
+                            if (vertical) height else width,
+                            newSizeValue(expand, vertical)
+                    ).apply {
+                        this.duration = duration
+                        addUpdateListener(this, vertical)
+                    })
+            start()
+        }
+
+private fun View.newSizeValue(expand: Boolean, vertical: Boolean) = if (!expand) 0 else {
+    measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+    if (vertical) measuredHeight else measuredWidth
+}
+
+fun View.addUpdateListener(valueAnimator: ValueAnimator, vertical: Boolean) =
+        valueAnimator.addUpdateListener { animator ->
+            (animator.animatedValue as Int).let {
+                if (vertical) layoutParams.height = it else layoutParams.width = it
+            }
+            requestLayout()
+        }
