@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.listenapp.R;
+import com.example.listenapp.custom.ExpanderKt;
 import com.example.listenapp.main.MainActivity;
 
 import custom.ExtFunKt;
@@ -90,7 +91,7 @@ public class ProfileFragment extends Fragment {
         aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  ExtFunKt.animateExpand(dropdownAbout,true,1000,true);
+                  ExpanderKt.animateExpandAbout(dropdownAbout,true,1000,true);
             }
         });
         signOut.setOnClickListener(new View.OnClickListener() {
