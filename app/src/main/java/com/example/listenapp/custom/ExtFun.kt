@@ -60,6 +60,7 @@ inline fun <reified Builder : ItemViewBuilder<*, *>>
         RecyclerView.setup(list: Collection<*>) =
         recyclerAdapter<Builder>(list).apply { adapter = this }
 
+
 val RecyclerView.recyclerAdapter get() = adapter as RecyclerAdapter?
 
 fun RecyclerView.update() = recyclerAdapter?.notifyDataSetChanged()

@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/picture_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/brown_200_profile_pic"
@@ -46,11 +47,12 @@
 
 
     <LinearLayout
-        android:layout_marginTop="280dp"
+        app:layout_constraintTop_toBottomOf="@+id/picture_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/grey_200"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <Button
             android:id="@+id/suggested_songs_btn"
@@ -64,16 +66,14 @@
             android:textAllCaps="false"
             />
 
-        <Button
-            android:id="@+id/edit_profile_btn"
-            android:layout_marginTop="1dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_profile"
-            android:text="Editar Perfil"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            />
+         <LinearLayout
+             android:id="@+id/dropdown_suggested_songs"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/grey_200"
+            android:orientation="vertical">
+         </LinearLayout>
 
         <Button
             android:id="@+id/friends_list_btn"
@@ -88,6 +88,16 @@
             />
 
         <Button
+            android:id="@+id/edit_profile_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:drawableStart="@drawable/ic_profile"
+            android:text="Editar Perfil"
+            android:textAlignment="textStart"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/about_btn"
             android:layout_marginTop="1dp"
             android:layout_width="fill_parent"
@@ -98,6 +108,21 @@
             android:drawableEnd="@drawable/ic_profile"
             android:textAllCaps="false"
             />
+
+        <LinearLayout
+            android:id="@+id/dropdown_about_listen_app"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/grey_200"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/about_listen_app"
+            />
+
+        </LinearLayout>
         <Button
             android:id="@+id/sign_out_btn"
             android:layout_marginTop="1dp"

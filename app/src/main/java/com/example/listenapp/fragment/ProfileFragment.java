@@ -12,11 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.listenapp.R;
 import com.example.listenapp.main.MainActivity;
+
+import custom.ExtFunKt;
 
 public class ProfileFragment extends Fragment {
 
@@ -25,6 +28,7 @@ public class ProfileFragment extends Fragment {
     ImageView userPicture;
     TextView userName, quantityPlaylists;
     Button suggestedSongs, editProfile, friendsList, aboutApp, signOut;
+    LinearLayout dropdownAbout;
 
 
     public ProfileFragment() {
@@ -60,6 +64,7 @@ public class ProfileFragment extends Fragment {
         friendsList = view.findViewById(R.id.friends_list_btn);
         aboutApp = view.findViewById(R.id.about_btn);
         signOut = view.findViewById(R.id.sign_out_btn);
+        dropdownAbout = view.findViewById(R.id.dropdown_about_listen_app);
     }
 
     private void setListeners(){
@@ -85,7 +90,7 @@ public class ProfileFragment extends Fragment {
         aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show();
+                  ExtFunKt.animateExpand(dropdownAbout,true,1000,true);
             }
         });
         signOut.setOnClickListener(new View.OnClickListener() {

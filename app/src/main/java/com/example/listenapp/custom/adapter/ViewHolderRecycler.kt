@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.viewbinding.ViewBinding
-import custom.bindView
+//import custom.bindView
 
 
 open class RecyclerViewHolder(val builder: ItemViewBuilder<*, *>) :
@@ -34,5 +34,5 @@ abstract class ItemViewBuilder<Data, Binding : ViewBinding> {
 
     abstract fun Binding.onBind(position: Int)
 
-    inline fun <reified B : ViewBinding> viewBind() = lazy { context.bindView(B::class) }
+    //inline fun <reified B : ViewBinding> viewBind() = lazy { context.bindView(B::class) }
 }
