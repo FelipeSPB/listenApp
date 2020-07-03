@@ -74,8 +74,6 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-
-
         newAcc.setOnClickListener(View.OnClickListener {
             val intent = Intent(applicationContext, NewAccountActivity::class.java)
             startActivity(intent)

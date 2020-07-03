@@ -39,7 +39,7 @@ class NewAccountActivity : AppCompatActivity() {
         login = findViewById(R.id.toLogin_Button)
         layout = findViewById(R.id.coordinator)
 
-        viewModel.validao.observe(this, Observer {
+        viewModel.firebaseLoginResponse.observe(this, Observer {
             if(it){
                 startActivity(Intent(this, MainScreen::class.java))
             } else{
