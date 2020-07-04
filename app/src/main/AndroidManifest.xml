@@ -25,14 +25,9 @@
         <activity
             android:name=".main.AccPlaceholder"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".main.NewAccountActivity"
-            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".main.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".main.MainActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".main.MainScreen"
