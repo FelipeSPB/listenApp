@@ -17,10 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.listenapp.R;
+import com.example.listenapp.custom.DesinflateKt;
 import com.example.listenapp.custom.ExpanderKt;
 import com.example.listenapp.main.MainActivity;
-
-import custom.ExtFunKt;
 
 public class ProfileFragment extends Fragment {
 
@@ -30,6 +29,7 @@ public class ProfileFragment extends Fragment {
     TextView userName, quantityPlaylists;
     Button suggestedSongs, editProfile, friendsList, aboutApp, signOut;
     LinearLayout dropdownAbout;
+    Boolean buttonAboutAppWasClicked = false;
 
 
     public ProfileFragment() {
@@ -91,9 +91,15 @@ public class ProfileFragment extends Fragment {
         aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  ExpanderKt.animateExpandAbout(dropdownAbout,true,1000,true);
-            }
-        });
+                if(buttonAboutAppWasClicked == true && aboutApp.isPressed()){
+                    ExpanderKt.animateExpandAbout(dropdownAbout, false, 500, false);
+                    buttonAboutAppWasClicked = false;
+                }else{
+                    ExpanderKt.animateExpandAbout(dropdownAbout, true, 500, true);
+                    buttonAboutAppWasClicked = true;
+                }
+            }});
+
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

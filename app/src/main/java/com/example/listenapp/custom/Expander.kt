@@ -56,6 +56,7 @@ fun View.animateExpandAbout(
         }
 
 private fun View.newSizeValueAbout(expand: Boolean, vertical: Boolean) = if (!expand) 0 else {
-    measure(ViewGroup.LayoutParams.WRAP_CONTENT, 300)
+    measure(ViewGroup.LayoutParams.WRAP_CONTENT, 100)
     if (vertical) measuredHeight else measuredWidth
 }
+
