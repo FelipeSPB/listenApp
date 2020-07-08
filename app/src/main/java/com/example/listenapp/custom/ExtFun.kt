@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Context.MODE_PRIVATE
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.res.Resources.getSystem
 import android.os.Bundle
@@ -22,19 +23,18 @@ import android.webkit.WebViewClient
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
 import com.example.listenapp.R
+import com.example.listenapp.custom.IContext
 import com.example.listenapp.custom.RecyclerAdapter
 import com.example.listenapp.custom.recyclerAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-
-
 import com.squareup.picasso.Picasso
-import custom.adapter.ItemViewBuilder
+import com.example.listenapp.custom.adapter.ItemViewBuilder
 import java.io.*
 import java.text.Normalizer
-
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction0
+
 
 fun String.normalize(): String {
     return Normalizer.normalize(toLowerCase(), Normalizer.Form.NFD)
@@ -151,7 +151,7 @@ val Context.inflater get() = getSystemService(Context.LAYOUT_INFLATER_SERVICE) a
 @Suppress("UNCHECKED_CAST")
 inline fun <reified Binding : ViewBinding> IContext.viewBind() = lazy {
     Binding::class.java.getMethod("inflate", LayoutInflater::class.java)
-            .invoke(null, activity.inflater) as Binding
+            .invoke(null, act.inflater) as Binding
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -222,3 +222,9 @@ fun WebView.loadInApp(inApp: Boolean = true) {
         }
     }
 }
+
+val Context.activity: Activity
+    get() = when (this) {
+        is Activity -> this
+        else -> (this as ContextWrapper).baseContext.activity
+    }

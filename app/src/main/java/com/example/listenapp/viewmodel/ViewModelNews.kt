@@ -47,7 +47,11 @@ class ViewModelNews: ViewModel() {
     }
 
     fun hotSpot() = CoroutineScope(IO).launch {
-        newsSet.postValue(repositoryFM.getGeoTop().topartists.artist)
+        try {
+            newsSet.postValue(repositoryFM.getGeoTop().topartists.artist)
+        } catch (backendException: Exception) {
+            Log.i("LOG", "Erro: "+backendException.message)
+        }
     }
 
 

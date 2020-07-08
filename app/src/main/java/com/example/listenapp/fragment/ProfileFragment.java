@@ -13,6 +13,13 @@ import com.example.listenapp.R;
 
 public class ProfileFragment extends Fragment {
 
+
+    public static ProfileFragment newInstance(Bundle bundle) {
+        ProfileFragment frag = new ProfileFragment();
+        frag.setArguments(bundle);
+        return frag;
+    }
+
     public ProfileFragment() {
     }
 

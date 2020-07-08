@@ -19,19 +19,18 @@ import com.example.listenapp.fragment.MusicFragmentKT;
 import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
 import com.example.listenapp.fragment.ProfileFragment;
+import com.example.listenapp.repository.RepositoryDatabase;
 
 public class MainScreen extends AppCompatActivity {
 
     final Fragment fNews = NewsFragment.newInstance(new Bundle());
     final Fragment fMusic = MusicFragmentKT.Companion.newInstance(new Bundle());
     final Fragment fPlay = PlaylistsFragment.newInstance(new Bundle());
-    //final Fragment fProfile = new SettingFragment();
+    final Fragment fProfile = ProfileFragment.newInstance(new Bundle());
     FragmentManager manager = getSupportFragmentManager();
     BottomNavigationView botNav;
     CoordinatorLayout layout;
     Context context = this;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,6 @@ public class MainScreen extends AppCompatActivity {
         achaViews();
         setListener();
         fragLoad(fNews);
-
-
     }
 
     private void achaViews() {
@@ -66,7 +63,7 @@ public class MainScreen extends AppCompatActivity {
                         fragLoad(fPlay);
                         break;
                     case R.id.menu_profile:
-                        fragLoad(new ProfileFragment());
+                        fragLoad(fProfile);
                         break;
                 }
                 return true;

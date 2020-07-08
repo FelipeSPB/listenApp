@@ -19,7 +19,6 @@ class MusicFragmentKT :FragBind<FragmentMusicBinding>(){
     override val binding: FragmentMusicBinding by viewBind()
     private val viewModel by lazy { viewModel<ViewModelMusic>() }
 
-    //var artistSet = ArrayList<Artist>()
     var trackSet = ArrayList<Track>()
     var pagina = 1
     var totalPaginas = 30
@@ -52,4 +51,9 @@ class MusicFragmentKT :FragBind<FragmentMusicBinding>(){
         viewModel.getTopTracks()
 
     }
+
+    fun viewModelFinder(): ViewModelMusic {
+        return viewModel
+    }
+
 }

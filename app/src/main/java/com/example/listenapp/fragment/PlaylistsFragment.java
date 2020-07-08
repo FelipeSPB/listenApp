@@ -106,6 +106,14 @@ public class PlaylistsFragment extends Fragment {
         adapterPlay = new AdapterPlay(playlists);
         playlistsRecycler.setLayoutManager(layoutManager);
         playlistsRecycler.setAdapter(adapterPlay);
+        mainModel.getDataSet().observe(fragment, set -> {
+            assert set != null;
+            playlists.addAll(set);
+            adapterPlay.notifyDataSetChanged();
+            adapterPlay.updateDataSet();
+        });
+        mainModel.getPlaylists();
+
 
 
     }

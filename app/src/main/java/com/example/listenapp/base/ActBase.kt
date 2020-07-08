@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
-import custom.IContext
+import com.example.listenapp.custom.IContext
 
 open class ActBase(open val layout: Int = 0) : AppCompatActivity(), IPermissionResult, IContext {
 

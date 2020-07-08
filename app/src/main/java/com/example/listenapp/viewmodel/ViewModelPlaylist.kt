@@ -8,7 +8,7 @@ import com.example.listenapp.repository.RepositoryDatabase
 
 class ViewModelPlaylist(application: Application) : AndroidViewModel(application) {
 
-    val  dataSet = MutableLiveData<MutableList<Playlist>>()
+    val dataSet = MutableLiveData<MutableList<Playlist>>()
     private val context = getApplication<Application>().applicationContext
     private var repository = RepositoryDatabase(context)
 
@@ -17,15 +17,10 @@ class ViewModelPlaylist(application: Application) : AndroidViewModel(application
         playlist.playlistName = name
         repository.getAccessPlay().insertAll(playlist)
         dataSet.postValue(repository.getAccessPlay().all)
-
-
     }
 
-    fun getPlaylists(){
+    fun getPlaylists() {
         dataSet.postValue(repository.getAccessPlay().all)
     }
-
-
-
 
 }

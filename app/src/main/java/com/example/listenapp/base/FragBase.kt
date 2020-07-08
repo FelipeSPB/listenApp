@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import custom.IContext
+import com.example.listenapp.custom.IContext
 
 
 abstract class FragBase : Fragment(), IContext {

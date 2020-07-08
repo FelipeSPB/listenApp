@@ -4,7 +4,7 @@ import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.support.v4.app.ActivityCompat.requestPermissions
 import android.support.v4.content.ContextCompat.checkSelfPermission
 
-import custom.IContext
+import com.example.listenapp.custom.IContext
 
 private const val PERMISSION_REQUEST_CODE = 11
 
@@ -31,12 +31,12 @@ interface IPermissionResult {
 interface IPermissionRequest : IContext {
 
     fun requestPermission(permission: String) =
-        if (checkSelfPermission(activity, permission) == PERMISSION_GRANTED)
+        if (checkSelfPermission(act, permission) == PERMISSION_GRANTED)
             onPermissionGranted(permission) else onRequest(permission)
 
     private fun onRequest(permission: String) {
-        (activity as IPermissionResult).iPermissionRequest = this
-        requestPermissions(activity, arrayOf(permission), PERMISSION_REQUEST_CODE)
+        (act as IPermissionResult).iPermissionRequest = this
+        requestPermissions(act, arrayOf(permission), PERMISSION_REQUEST_CODE)
         onPermissionRequested(permission)
     }
 
