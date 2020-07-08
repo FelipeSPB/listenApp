@@ -1,6 +1,8 @@
 package com.example.listenapp.fragment;
 
 import android.app.Activity;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.listenapp.R;
-import com.example.listenapp.custom.DesinflateKt;
 import com.example.listenapp.custom.ExpanderKt;
 import com.example.listenapp.main.MainActivity;
+import com.example.listenapp.viewmodel.ViewModelProfile;
 
 public class ProfileFragment extends Fragment {
 
@@ -30,6 +32,7 @@ public class ProfileFragment extends Fragment {
     Button suggestedSongs, editProfile, friendsList, aboutApp, signOut;
     LinearLayout dropdownAbout;
     Boolean buttonAboutAppWasClicked = false;
+    ViewModelProfile viewModelProfile;
 
 
     public ProfileFragment() {
@@ -51,6 +54,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModelProfile = ViewModelProviders.of(this).get(ViewModelProfile.class);
         findViews();
         setListeners();
     }
@@ -88,6 +92,7 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show();
             }
         });
+
         aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,8 +113,5 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
-
-
-
 
 }
