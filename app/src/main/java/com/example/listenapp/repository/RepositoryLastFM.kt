@@ -1,7 +1,6 @@
 package com.example.listenapp.repository
 
 import com.example.listenapp.model.apimodels.GeoTopArtitstsResponse
-import com.example.listenapp.model.apimodels.GeoTopTracksResponse
 import retrofit.RetroInit
 
 class RepositoryLastFM {
@@ -12,10 +11,6 @@ class RepositoryLastFM {
 
     suspend fun getGeoTop(): GeoTopArtitstsResponse {
         return serviceLast.getGeoTop(LASTFM_APP_ID,"brazil","json")
-    }
-
-    suspend fun getGeoTopTracks(): GeoTopTracksResponse {
-        return serviceLast.getGeoTopTracks(LASTFM_APP_ID,"brazil","json")
     }
 
 }
