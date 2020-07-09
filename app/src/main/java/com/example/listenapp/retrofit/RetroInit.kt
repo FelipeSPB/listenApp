@@ -8,6 +8,7 @@ import kotlin.reflect.KClass
 
 
 private val gsonConverter: GsonConverterFactory = GsonConverterFactory.create()
+
 class RetroInit(url: String) {
 
     private val retrofit: Retrofit = Retrofit.Builder()
@@ -18,3 +19,4 @@ class RetroInit(url: String) {
     fun <T : Any> create(clazz: KClass<T>): T = retrofit.create(clazz.java)
 
 }
+

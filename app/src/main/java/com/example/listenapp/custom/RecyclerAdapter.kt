@@ -6,6 +6,7 @@ import com.example.listenapp.custom.adapter.ItemViewBuilder
 import com.example.listenapp.custom.adapter.RecyclerViewHolder
 
 
+
 abstract class RecyclerAdapter<Type : RecyclerView.ViewHolder>(var collection: Collection<*>) :
         RecyclerView.Adapter<Type>() {
 

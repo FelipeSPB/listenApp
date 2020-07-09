@@ -1,6 +1,5 @@
 package com.example.listenapp.model.apimodels
 
-
 import android.annotation.SuppressLint
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize

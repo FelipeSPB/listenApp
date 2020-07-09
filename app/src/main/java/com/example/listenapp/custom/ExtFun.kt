@@ -1,5 +1,7 @@
 package custom
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
@@ -16,6 +18,8 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.viewbinding.ViewBinding
 import android.webkit.WebView
@@ -57,6 +61,7 @@ operator fun <T> Collection<T>.get(index: Int): T {
 inline fun <reified Builder : ItemViewBuilder<*, *>>
         RecyclerView.setup(list: Collection<*>) =
         recyclerAdapter<Builder>(list).apply { adapter = this }
+
 
 val RecyclerView.recyclerAdapter get() = adapter as RecyclerAdapter?
 
@@ -212,6 +217,7 @@ inline fun <reified T : Parcelable>
 val <T : Any> Class<T>.klass: KClass<T>
     get() = this::class as KClass<T>
 
+
 fun WebView.loadInApp(inApp: Boolean = true) {
     if (inApp) {
         webViewClient = object : WebViewClient() {
@@ -228,3 +234,4 @@ val Context.activity: Activity
         is Activity -> this
         else -> (this as ContextWrapper).baseContext.activity
     }
+

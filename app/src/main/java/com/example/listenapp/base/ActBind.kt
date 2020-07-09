@@ -3,7 +3,6 @@ package base
 import android.os.Bundle
 import android.viewbinding.ViewBinding
 
-
 abstract class ActBind<Binding : ViewBinding> : ActBase() {
 
     abstract val binding: Binding
@@ -15,6 +14,7 @@ abstract class ActBind<Binding : ViewBinding> : ActBase() {
     }
 
     open fun Binding.onBoundView() {}
+
 }
 
 

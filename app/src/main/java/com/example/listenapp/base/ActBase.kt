@@ -13,6 +13,8 @@ open class ActBase(open val layout: Int = 0) : AppCompatActivity(), IPermissionR
     companion object {
         @JvmStatic
         lateinit var currentActivity: AppCompatActivity
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

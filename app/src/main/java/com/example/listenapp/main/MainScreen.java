@@ -20,6 +20,8 @@ import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
 import com.example.listenapp.fragment.ProfileFragment;
 import com.example.listenapp.repository.RepositoryDatabase;
+import com.example.listenapp.fragment.ProfileFragmentKT;
+
 
 public class MainScreen extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ public class MainScreen extends AppCompatActivity {
     final Fragment fMusic = MusicFragmentKT.Companion.newInstance(new Bundle());
     final Fragment fPlay = PlaylistsFragment.newInstance(new Bundle());
     final Fragment fProfile = ProfileFragment.newInstance(new Bundle());
+    final Fragment profile = ProfileFragmentKT.Companion.newInstance(new Bundle());   
+
     FragmentManager manager = getSupportFragmentManager();
     BottomNavigationView botNav;
     CoordinatorLayout layout;
@@ -63,7 +67,7 @@ public class MainScreen extends AppCompatActivity {
                         fragLoad(fPlay);
                         break;
                     case R.id.menu_profile:
-                        fragLoad(fProfile);
+                        fragLoad(profile);
                         break;
                 }
                 return true;
@@ -101,6 +105,7 @@ public class MainScreen extends AppCompatActivity {
           fragLoad(fNews);
           botNav.setSelectedItemId(R.id.menu_news);
         }
+
     }
 }
 

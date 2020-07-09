@@ -35,8 +35,7 @@
             android:textSize="24sp"
             android:textStyle="normal"
             android:textColor="@color/white"
-            tools:text="Lorem ipsum"
-            />
+            tools:text="Lorem ipsum"/>
 
     </android.support.v7.widget.CardView>
 
