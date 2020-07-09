@@ -6,7 +6,6 @@ import android.os.Bundle
 import base.FragBind
 import com.example.listenapp.custom.recyclerAdapter
 import com.example.listenapp.databinding.FragmentMusicBinding
-import com.example.listenapp.model.apimodels.Artist
 import com.example.listenapp.model.apimodels.Track
 import com.example.listenapp.recycler.ItemViewMusic
 import com.example.listenapp.viewmodel.ViewModelMusic
