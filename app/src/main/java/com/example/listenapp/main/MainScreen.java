@@ -104,6 +104,7 @@ public class MainScreen extends AppCompatActivity {
           fragLoad(fNews);
           botNav.setSelectedItemId(R.id.menu_news);
         }
+
     }
 }
 

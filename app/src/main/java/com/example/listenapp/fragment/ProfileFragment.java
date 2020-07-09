@@ -1,7 +1,6 @@
 package com.example.listenapp.fragment;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.listenapp.R;
-import com.example.listenapp.custom.ExpanderKt;
-import com.example.listenapp.main.MainActivity;
+import com.example.listenapp.main.AboutAppActivity;
+import com.example.listenapp.main.LoginActivity;
+import com.example.listenapp.main.MainScreen;
+import com.example.listenapp.main.NewAccountActivity;
 import com.example.listenapp.viewmodel.ViewModelProfile;
 
 public class ProfileFragment extends Fragment {
@@ -96,20 +96,15 @@ public class ProfileFragment extends Fragment {
         aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(buttonAboutAppWasClicked == true && aboutApp.isPressed()){
-                    ExpanderKt.animateExpandAbout(dropdownAbout, false, 500, false);
-                    buttonAboutAppWasClicked = false;
-                }else{
-                    ExpanderKt.animateExpandAbout(dropdownAbout, true, 500, true);
-                    buttonAboutAppWasClicked = true;
-                }
+                Activity activity = (Activity) view.getContext();
+                activity.startActivity(new Intent(activity, AboutAppActivity.class));
             }});
 
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Activity activity = (Activity) view.getContext();
-                activity.startActivity(new Intent(activity, MainActivity.class));
+                activity.startActivity(new Intent(activity, NewAccountActivity.class));
             }
         });
     }
