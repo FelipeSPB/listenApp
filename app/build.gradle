@@ -43,17 +43,18 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
-    implementation 'com.google.firebase:firebase-auth:19.3.1'
-    implementation 'com.google.firebase:firebase-core:17.4.3'
+    implementation 'com.google.firebase:firebase-core:17.4.4'
 
     //Facebook
     implementation 'com.facebook.android:facebook-login:5.15.3'
 
+
     // Firebase Databaseire
     implementation 'com.google.firebase:firebase-database:19.3.1'
 
+
     // Firebase login
-    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
     implementation 'com.google.firebase:firebase-storage-ktx:19.1.1'
 
@@ -73,9 +74,9 @@ dependencies {
     //annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
 
     // Retrofit
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.6.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
 
     // Facebook Sthetho
     implementation 'com.facebook.android:facebook-login:5.15.3'

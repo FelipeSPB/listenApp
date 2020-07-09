@@ -10,9 +10,8 @@ import com.google.firebase.auth.GoogleAuthProvider
 class SocialMediaLogViewModel : ViewModel(){
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val loginResponse = MutableLiveData<Boolean>()
     val user get() = auth.currentUser
-    val firebaseLoginResponse = MutableLiveData<Boolean>()
+    val login = MutableLiveData<Boolean>()
 
     fun logIn(data: Intent?) = try {
         GoogleSignIn.getSignedInAccountFromIntent(data).run {
@@ -27,26 +26,27 @@ class SocialMediaLogViewModel : ViewModel(){
     }
 
     val onLoginSuccess = {
-        loginResponse.postValue(true)
+        login.postValue(true)
     }
 
     val onLoginFail = {
-        loginResponse.postValue(false)
+        login.postValue(false)
     }
 
     fun validarCampo(email: String, password: String, confirmpass: String) {
         if (email.isEmpty() || password.isEmpty() || confirmpass.isEmpty()) {
-            firebaseLoginResponse.postValue(false)
+            login.postValue(false)
         } else if(email.isNotEmpty() && confirmpass.isNotEmpty()){
             auth.createUserWithEmailAndPassword(email, confirmpass).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    firebaseLoginResponse.postValue(true)
+                    login.postValue(true)
                     Log.i("AUTENTICAÇÃO", "Bem-vindo ao App")
                 } else {
-                    firebaseLoginResponse.postValue(false)
+                    login.postValue(false)
                     Log.i("AUTENTICAÇÃO", "erro ao AUTENTICAR")
                 }
             }
         }
     }
+
 }
