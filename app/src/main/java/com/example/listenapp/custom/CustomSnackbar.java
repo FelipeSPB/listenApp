@@ -1,8 +1,9 @@
 package com.example.listenapp.custom;
 
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 public class CustomSnackbar {
 
