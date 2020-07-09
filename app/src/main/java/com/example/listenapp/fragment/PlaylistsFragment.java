@@ -1,7 +1,6 @@
 package com.example.listenapp.fragment;
 
 
-
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -18,6 +17,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
+
 import com.example.listenapp.R;
 import com.example.listenapp.model.Playlist;
 import com.example.listenapp.recycler.AdapterPlay;
@@ -29,7 +29,7 @@ import custom.InputDialog;
 
 public class PlaylistsFragment extends Fragment {
 
-    ViewModelPlaylist mainModel;
+    public ViewModelPlaylist mainModel;
     View view;
     Context context;
     Fragment fragment = this;
@@ -44,7 +44,7 @@ public class PlaylistsFragment extends Fragment {
     }
 
     public static PlaylistsFragment newInstance(Bundle bundle) {
-       PlaylistsFragment frag = new PlaylistsFragment();
+        PlaylistsFragment frag = new PlaylistsFragment();
         frag.setArguments(bundle);
         return frag;
     }
@@ -73,10 +73,13 @@ public class PlaylistsFragment extends Fragment {
         recyclerSetup();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mainModel.getPlaylists();
+    }
 
-
-
-    private void findViews(){
+    private void findViews() {
         playlistsRecycler = view.findViewById(R.id.recycler_playlists);
         addPlaylist = view.findViewById(R.id.add_playlist_button);
         searchBar = view.findViewById(R.id.playlist_search);
@@ -101,34 +104,24 @@ public class PlaylistsFragment extends Fragment {
             dialog.show();
         };
     }
-    private void recyclerSetup(){
+
+    private void recyclerSetup() {
         layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         adapterPlay = new AdapterPlay(playlists);
         playlistsRecycler.setLayoutManager(layoutManager);
         playlistsRecycler.setAdapter(adapterPlay);
         mainModel.getDataSet().observe(fragment, set -> {
+            playlists.clear();
             assert set != null;
             playlists.addAll(set);
             adapterPlay.notifyDataSetChanged();
             adapterPlay.updateDataSet();
         });
-        mainModel.getPlaylists();
-
-
-
     }
 
-    public void updatePlaylists(){
-
-        mainModel.getDataSet().observe(fragment, set -> {
-
-            playlists.clear();
-            assert set != null;
-            playlists.addAll(set);
-        });
+    public void updatePlaylists() {
         adapterPlay.notifyDataSetChanged();
         adapterPlay.updateDataSet();
-
     }
 
     private SearchView.OnQueryTextListener searchInput() {

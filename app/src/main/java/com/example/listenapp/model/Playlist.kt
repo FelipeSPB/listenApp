@@ -31,12 +31,14 @@ data class Playlist(
     var musicList:ArrayList<Music> = ArrayList()
 
     fun setList(){
+        //musicList.add(Music("name", "", "url"))
         musics = musicList.toJsonArray()
     }
 
-    fun getList(){
+    fun getList(): ArrayList<Music> {
         musicList.clear()
         musicList.addAll(musics.toObjekts())
+        return musicList
     }
 
     fun addToPlaylist(music: Music){
