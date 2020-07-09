@@ -1,6 +1,7 @@
 package com.example.listenapp.recycler;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listenapp.R;
+import com.example.listenapp.main.MainActivity;
+import com.example.listenapp.main.WebViewActivity;
 import com.example.listenapp.model.apimodels.News;
 import com.squareup.picasso.Picasso;
 
@@ -35,13 +38,17 @@ public class AdapterNews extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder ViewHolder, int position) {
+
         final News newsItem = dataSet.get(position);
         Picasso.get().load(newsItem.formatImage()).into(ViewHolder.image);
         System.out.println(newsItem.formatImage());
         ViewHolder.headline.setText(newsItem.getHeadline());
         ViewHolder.cardView.setOnClickListener(Click -> {
-
+            activity.startActivity(new Intent(activity, WebViewActivity.class)
+                    .putExtra("URL",newsItem.getUrl())
+            );
         });
+
     }
 
     @Override

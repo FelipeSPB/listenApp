@@ -71,12 +71,12 @@ public class MusicFragment extends Fragment {
         loadAPI();
     }
     private void loadAPI() {
-        mainModel.getArtists().observe(fragment, artists -> {
-            artistSet.addAll(artists);
+        mainModel.getTracks().observe(fragment, artists -> {
+            //artistSet.addAll(artists);
             adapterMusic.notifyDataSetChanged();
 
         });
-        mainModel.getArtTop();
+        //mainModel.getArtTop();
     }
 
     private void findViews() {

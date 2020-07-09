@@ -11,7 +11,7 @@ import com.example.listenapp.R;
 
 public class PlaylistsViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewContent,textViewQuantity;
-    public ImageView imageView;
+    public ImageView imageView, deleteButton;
     public CardView cardView;
     private Activity activity;
 
@@ -23,5 +23,6 @@ public class PlaylistsViewHolder extends RecyclerView.ViewHolder {
         imageView = layout.findViewById(R.id.cardViewPlay_imageField);
         cardView = layout.findViewById(R.id.cardViewPlay);
         imageView.setImageDrawable(activity.getDrawable(R.drawable.ic_vinyl_record));
+        deleteButton = layout.findViewById(R.id.cardView_deleteItem);
     }
 }

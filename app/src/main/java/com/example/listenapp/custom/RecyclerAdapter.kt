@@ -2,8 +2,8 @@ package com.example.listenapp.custom
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import custom.adapter.ItemViewBuilder
-import custom.adapter.RecyclerViewHolder
+import com.example.listenapp.custom.adapter.ItemViewBuilder
+import com.example.listenapp.custom.adapter.RecyclerViewHolder
 
 
 

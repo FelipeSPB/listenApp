@@ -27,6 +27,7 @@ import com.example.listenapp.viewmodel.ViewModelProfile;
 
 public class ProfileFragment extends Fragment {
 
+
     Context context;
     View view;
     ImageView userPicture;
@@ -37,6 +38,11 @@ public class ProfileFragment extends Fragment {
     ViewModelProfile viewModelProfile;
     String faixa;
 
+	public static ProfileFragment newInstance(Bundle bundle) {
+        ProfileFragment frag = new ProfileFragment();
+        frag.setArguments(bundle);
+        return frag;
+	}
 
     public ProfileFragment() {
     }

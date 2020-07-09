@@ -8,6 +8,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Context.MODE_PRIVATE
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.res.Resources.getSystem
 import android.os.Bundle
@@ -21,22 +22,23 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.viewbinding.ViewBinding
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
 import com.example.listenapp.R
+import com.example.listenapp.custom.IContext
 import com.example.listenapp.custom.RecyclerAdapter
 import com.example.listenapp.custom.recyclerAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-
-
 import com.squareup.picasso.Picasso
-import custom.adapter.ItemViewBuilder
+import com.example.listenapp.custom.adapter.ItemViewBuilder
 import java.io.*
 import java.text.Normalizer
-
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction0
+
 
 fun String.normalize(): String {
     return Normalizer.normalize(toLowerCase(), Normalizer.Form.NFD)
@@ -107,6 +109,8 @@ fun <T : Comparable<T>> listOfRange(iterable: Iterable<T>): MutableList<T> {
 @Suppress("UNCHECKED_CAST") // Converts Pixel value to DensityPixel value
 val <N : Number> N.dp
     get() = (toFloat() * getSystem().displayMetrics.density) as N
+val <N : Number> N.sp
+    get() = (toFloat() * getSystem().displayMetrics.scaledDensity) as N
 
 fun onTextSubmit(block: (String) -> Unit) = object : SearchView.OnQueryTextListener {
     override fun onQueryTextSubmit(dota: String): Boolean {
@@ -152,7 +156,7 @@ val Context.inflater get() = getSystemService(Context.LAYOUT_INFLATER_SERVICE) a
 @Suppress("UNCHECKED_CAST")
 inline fun <reified Binding : ViewBinding> IContext.viewBind() = lazy {
     Binding::class.java.getMethod("inflate", LayoutInflater::class.java)
-            .invoke(null, activity.inflater) as Binding
+            .invoke(null, act.inflater) as Binding
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -173,6 +177,8 @@ fun Context.shareText(text: String) {
 }
 
 infix fun ImageView.setImageFromURL(url: Any?) = Picasso.get().load(url.toString()).into(this)
+
+fun ImageView.setImageFromURLwError(url: Any?, placeholder: Int) = Picasso.get().load(url.toString()).error(placeholder).into(this)
 
 val <T : Parcelable> T.toJson
     get(): String = GsonBuilder().setPrettyPrinting()
@@ -210,3 +216,22 @@ inline fun <reified T : Parcelable>
 @Suppress("UNCHECKED_CAST")
 val <T : Any> Class<T>.klass: KClass<T>
     get() = this::class as KClass<T>
+
+
+fun WebView.loadInApp(inApp: Boolean = true) {
+    if (inApp) {
+        webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                view.loadUrl(url)
+                return true
+            }
+        }
+    }
+}
+
+val Context.activity: Activity
+    get() = when (this) {
+        is Activity -> this
+        else -> (this as ContextWrapper).baseContext.activity
+    }
+

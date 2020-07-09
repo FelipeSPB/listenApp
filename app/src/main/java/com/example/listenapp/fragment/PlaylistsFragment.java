@@ -1,7 +1,6 @@
 package com.example.listenapp.fragment;
 
 
-import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -20,20 +19,17 @@ import android.widget.EditText;
 import android.widget.SearchView;
 
 import com.example.listenapp.R;
-import com.example.listenapp.data.DatabaseBuilder;
-import com.example.listenapp.data.dao.AccessPlay;
 import com.example.listenapp.model.Playlist;
 import com.example.listenapp.recycler.AdapterPlay;
 import com.example.listenapp.viewmodel.ViewModelPlaylist;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import custom.InputDialog;
 
 public class PlaylistsFragment extends Fragment {
 
-    ViewModelPlaylist mainModel;
+    public ViewModelPlaylist mainModel;
     View view;
     Context context;
     Fragment fragment = this;
@@ -42,25 +38,13 @@ public class PlaylistsFragment extends Fragment {
     RecyclerView playlistsRecycler;
     RecyclerView.LayoutManager layoutManager;
     AdapterPlay adapterPlay;
-    private int playlistIndex = 0;
     ArrayList<Playlist> playlists = new ArrayList<>();
-
-
-    String[] dataSet = {
-            "Rafinha",
-            "Henrique",
-            "Xandão",
-            "Daniel",
-            "Peter Henry",
-            "404",
-            "Giulia"};
-
 
     public PlaylistsFragment() {
     }
 
     public static PlaylistsFragment newInstance(Bundle bundle) {
-       PlaylistsFragment frag = new PlaylistsFragment();
+        PlaylistsFragment frag = new PlaylistsFragment();
         frag.setArguments(bundle);
         return frag;
     }
@@ -84,15 +68,18 @@ public class PlaylistsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mainModel = ViewModelProviders.of(fragment).get(ViewModelPlaylist.class);
-        //playlists.clear();
-        //playlists.addAll();
         findViews();
         setListeners();
         recyclerSetup();
-
     }
 
-    private void findViews(){
+    @Override
+    public void onResume() {
+        super.onResume();
+        mainModel.getPlaylists();
+    }
+
+    private void findViews() {
         playlistsRecycler = view.findViewById(R.id.recycler_playlists);
         addPlaylist = view.findViewById(R.id.add_playlist_button);
         searchBar = view.findViewById(R.id.playlist_search);
@@ -117,25 +104,24 @@ public class PlaylistsFragment extends Fragment {
             dialog.show();
         };
     }
-    private void recyclerSetup(){
+
+    private void recyclerSetup() {
         layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         adapterPlay = new AdapterPlay(playlists);
         playlistsRecycler.setLayoutManager(layoutManager);
         playlistsRecycler.setAdapter(adapterPlay);
-    }
-
-    public void updatePlaylists(){
-
         mainModel.getDataSet().observe(fragment, set -> {
-
             playlists.clear();
             assert set != null;
             playlists.addAll(set);
+            adapterPlay.notifyDataSetChanged();
+            adapterPlay.updateDataSet();
         });
+    }
+
+    public void updatePlaylists() {
         adapterPlay.notifyDataSetChanged();
         adapterPlay.updateDataSet();
-
-
     }
 
     private SearchView.OnQueryTextListener searchInput() {

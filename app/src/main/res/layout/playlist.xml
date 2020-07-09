@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/panel_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:elevation="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/panel_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:elevation="5dp"
+        android:tint="@color/black"
+        app:layout_constraintTop_toTopOf="@id/panel_bar"
+        app:layout_constraintStart_toStartOf="@id/panel_bar"
+        app:layout_constraintBottom_toBottomOf="@id/panel_bar"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/panel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:elevation="5dp"
+        app:layout_constraintTop_toTopOf="@id/panel_bar"
+        app:layout_constraintStart_toStartOf="@id/panel_bar"
+        app:layout_constraintEnd_toEndOf="@id/panel_bar"
+        app:layout_constraintBottom_toBottomOf="@id/panel_bar"
+        tools:text = "Title"/>
+
+    <custom.VerticalRecycler
+        android:id="@+id/fav_musics"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/panel_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

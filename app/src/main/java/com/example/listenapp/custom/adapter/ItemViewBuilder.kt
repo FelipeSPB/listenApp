@@ -1,4 +1,4 @@
-package custom.adapter
+package com.example.listenapp.custom.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -7,7 +7,8 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.viewbinding.ViewBinding
 
-import custom.IContext
+import com.example.listenapp.custom.IContext
+import custom.activity
 
 open class RecyclerViewHolder(val builder: ItemViewBuilder<*, *>) :
     RecyclerView.ViewHolder(builder.build())
@@ -20,10 +21,10 @@ abstract class ItemViewBuilder<Data, Binding : ViewBinding> : IContext {
     lateinit var recycler: RecyclerView
 
     @Suppress("UNCHECKED_CAST")
-    fun init(group: ViewGroup, coll: Collection<*>) = apply {
+    open fun init(group: ViewGroup, coll: Collection<*>) = apply {
         recycler = group as RecyclerView
         collection = coll as Collection<Data>
-        context = group.context
+        context = group.context.activity
     }
 
     fun build() = binding.root.apply {

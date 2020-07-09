@@ -8,7 +8,6 @@ import com.example.listenapp.data.dao.AccessPlay
 import com.example.listenapp.model.Playlist
 
 @Database(entities = [Playlist::class], version = 1, exportSchema = false)
-
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun accessPlay(): AccessPlay
