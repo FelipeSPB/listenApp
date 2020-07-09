@@ -8,10 +8,11 @@ import com.example.listenapp.R
 
 class ViewModelProfile(application: Application) : AndroidViewModel(application) {
 
-    fun setUserData(userProfile: ImageView,textViewName: TextView, textViewQtdPasswords: TextView){
+
+    fun setUserData(userProfile: ImageView, textViewName: TextView, textViewQtdPasswords: TextView) {
         userProfile.setImageResource(R.drawable.saitama)
         textViewName.text = "Saitama"
-        var countedPlaylists ="11"
+        var countedPlaylists = "11"
         textViewQtdPasswords.text = countedPlaylists + " Playlists"
     }
 

@@ -1,5 +1,7 @@
 package custom
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
@@ -15,6 +17,8 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.viewbinding.ViewBinding
 import android.widget.*
@@ -55,6 +59,7 @@ operator fun <T> Collection<T>.get(index: Int): T {
 inline fun <reified Builder : ItemViewBuilder<*, *>>
         RecyclerView.setup(list: Collection<*>) =
         recyclerAdapter<Builder>(list).apply { adapter = this }
+
 
 val RecyclerView.recyclerAdapter get() = adapter as RecyclerAdapter?
 

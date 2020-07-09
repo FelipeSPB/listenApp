@@ -19,7 +19,4 @@ interface ServiceLastFM {
             format: String
     ): GeoTopArtitstsResponse
 
-
-
-
 }
