@@ -1,5 +1,6 @@
 package com.example.listenapp.main
 
+import `in`.championswimmer.libsocialbuttons.BtnSocial
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.content.Context
@@ -30,6 +31,7 @@ import com.facebook.FacebookException
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -49,13 +51,13 @@ class LoginActivity : AppCompatActivity() {
     lateinit var newUserPassword: EditText
     lateinit var buttonLogin: Button
     lateinit var newAcc: Button
-    lateinit var signInButtonGoogle: SignInButton
+    lateinit var signInButtonGoogle: BtnSocial
     lateinit var googleAuth: FirebaseAuth
 
 
     lateinit var loginContainer: LinearLayout
     lateinit var newAccountContainer: LinearLayout
-    lateinit var signInButtonFacebook: LoginButton
+    lateinit var signInButtonFacebook: BtnSocial
     private val loginCode = 300
 
 
@@ -132,10 +134,11 @@ class LoginActivity : AppCompatActivity() {
             signInClient.revokeAccess()
         }
         signInButtonFacebook.setOnClickListener {
-            signInButtonFacebook.registerCallback(callbackManager,
-                    facebookCallback)
-        }
-    }
+            LoginManager.getInstance().run{
+                logInWithReadPermissions(this@LoginActivity, listOf("email",  "public_profile"))
+                registerCallback(callbackManager, facebookCallback)
+            }
+    } }
 
     private fun loginhoSucesso() {
         startActivity(Intent(this, MainScreen::class.java))

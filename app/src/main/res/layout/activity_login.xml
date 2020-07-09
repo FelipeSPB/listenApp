@@ -59,7 +59,7 @@
                     android:id="@+id/input_user"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="@string/user"
+                    android:hint="E-mail"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -122,7 +122,7 @@
                     android:id="@+id/user_login_log"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="@string/user"
+                    android:hint="E-mail"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -230,16 +230,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/login_options" />
 
-    <com.google.android.gms.common.SignInButton
+    <in.championswimmer.libsocialbuttons.BtnSocial
         android:id="@+id/button_google"
-        android:layout_width="150dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="180dp"
         android:layout_height="55dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:layout_marginBottom="15dp"
         android:elevation="2dp"
         android:paddingStart="15dp"
         android:paddingEnd="20dp"
+        android:background="@drawable/google_button_cutom"
+        android:text="@string/google"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconSize="24dp"
+        app:social="google"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
@@ -251,15 +261,27 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <com.facebook.login.widget.LoginButton
+    <in.championswimmer.libsocialbuttons.BtnSocial
         android:id="@+id/button_facebook"
-        android:layout_width="165dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="160dp"
         android:layout_height="55dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:layout_marginBottom="15dp"
         android:elevation="2dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/facebook_button_custom"
+        android:text="FACEBOOK"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconSize="24dp"
+        app:social="facebook"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
