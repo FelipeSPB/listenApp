@@ -32,4 +32,6 @@
     <string name="new_playlist">NOVA PLAYLIST</string>
     <string name="playlist_hint">Nome Da Nova Playlist</string>
     <string name="top_artists">Top Artistas</string>
+    <string name="name_playlist">Nomeie sua Playlist</string>
+    <string name="playlist_new_msg">Você ainda não criou uma playlist, crie uma para adicionar uma música aos favoritos.</string>
 </resources>

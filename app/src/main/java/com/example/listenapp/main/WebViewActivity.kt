@@ -1,5 +1,7 @@
 package com.example.listenapp.main
 
+import android.content.Intent
+import android.content.Intent.*
 import android.os.Bundle
 import base.ActBind
 import com.example.listenapp.databinding.WebviewBinding
@@ -17,6 +19,15 @@ class WebViewActivity : ActBind<WebviewBinding>() {
     }
     override fun WebviewBinding.onBoundView() {
         backArrow.onClick {super.onBackPressed()}
+        share.onClick{ startActivity(
+                createChooser(
+                        Intent().apply {
+                            action = ACTION_SEND
+                            type = "text/plain"
+                            putExtra(EXTRA_TEXT, url)
+                        }, "Texto do Menuzinho Bacana"
+                )
+        ) }
         webview.loadUrl(url)
         webview.loadInApp()
     }

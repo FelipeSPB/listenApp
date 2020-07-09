@@ -14,11 +14,10 @@ interface IContext {
 
     val act
         get() : Activity = when (this) {
-            is Fragment -> requireContext() as Activity
-            is View                  -> context as Activity
-            is ItemViewBuilder<*, *> -> context as Activity
-            is Dialog                -> context as Activity
-            is ContextWrapper        -> baseContext.activity
+            is Fragment              -> requireContext().activity
+            is View                  -> context.activity
+            is ItemViewBuilder<*, *> -> context.activity
+            is Dialog                -> context.activity
             else                     -> this as Activity
         }
 }
