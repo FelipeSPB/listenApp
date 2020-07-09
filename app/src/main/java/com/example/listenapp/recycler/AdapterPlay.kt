@@ -34,7 +34,7 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
     }
 
     override fun onBindViewHolder(ViewHolder: PlaylistsViewHolder, position: Int) {
-        val playlist = dataSet.elementAt(position)
+        val playlist = dataSet[position]
         ViewHolder.textViewContent.text = playlist.playlistName
         ViewHolder.textViewQuantity.text = playlist.quantity.toString()
         ViewHolder.imageView.setImageResource(playlist.playlistImage)
@@ -42,19 +42,19 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
             newPanel(R.layout.playlist) {
                 val closeBtn = findViewById<ImageView>(R.id.panel_close)
                 val recycler = findViewById<VerticalRecycler>(R.id.fav_musics)
+                //val musicList = playlist.getList()
                 val musicList:ArrayList<Music> = ArrayList()
-                println(playlist.getList())
+                musicList.add(Music("Do you wanna know","", ""))
+                musicList.add(Music("Prepara","", ""))
+                musicList.add(Music("Tiro Porrada e Bomba","", ""))
+                musicList.add(Music("We are number one","", ""))
+                val adapter = recyclerAdapter<ItemViewFavorites>(musicList)
 
-
-
-                //val adapter = recyclerAdapter<ItemViewFavorites>(musicList)
-
-                //recycler?.adapter = adapter
+                recycler?.adapter = adapter
 
                 closeBtn?.onClick { dismiss() }
             }
         }
-
 
         ViewHolder.deleteButton.onClick {
             RepositoryDatabase(activity).getAccessPlay().delete(playlist)
