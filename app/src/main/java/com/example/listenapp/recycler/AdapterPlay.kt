@@ -12,15 +12,20 @@ import com.example.listenapp.R
 import com.example.listenapp.custom.newPanel
 import com.example.listenapp.custom.recyclerAdapter
 import com.example.listenapp.custom.toJsonArray
+import com.example.listenapp.fragment.PlaylistsFragment
+import com.example.listenapp.main.MainScreen
+import com.example.listenapp.model.Music
 import com.example.listenapp.model.Playlist
+import com.example.listenapp.repository.RepositoryDatabase
 import custom.VerticalRecycler
 import custom.onClick
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<PlaylistsViewHolder>(), Filterable {
     var dataSet: ArrayList<Playlist>
     lateinit var dataSetFull: ArrayList<Playlist>
-    var activity: Activity? = null
+    lateinit var activity: Activity
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): PlaylistsViewHolder {
         activity = viewGroup.context as Activity
         val layout = LayoutInflater.from(viewGroup.context)
@@ -29,7 +34,7 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
     }
 
     override fun onBindViewHolder(ViewHolder: PlaylistsViewHolder, position: Int) {
-        val playlist = dataSet[position]
+        val playlist = dataSet.elementAt(position)
         ViewHolder.textViewContent.text = playlist.playlistName
         ViewHolder.textViewQuantity.text = playlist.quantity.toString()
         ViewHolder.imageView.setImageResource(playlist.playlistImage)
@@ -37,12 +42,32 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
             newPanel(R.layout.playlist) {
                 val closeBtn = findViewById<ImageView>(R.id.panel_close)
                 val recycler = findViewById<VerticalRecycler>(R.id.fav_musics)
-                val adapter = recyclerAdapter<ItemViewFavorites>(playlist.musicList)
+                val musicList:ArrayList<Music> = ArrayList()
+                println(playlist.getList())
 
-                recycler?.adapter = adapter
+
+
+                //val adapter = recyclerAdapter<ItemViewFavorites>(musicList)
+
+                //recycler?.adapter = adapter
 
                 closeBtn?.onClick { dismiss() }
             }
+        }
+
+
+        ViewHolder.deleteButton.onClick {
+            RepositoryDatabase(activity).getAccessPlay().delete(playlist)
+            updateDataSet()
+            val manager = (activity as MainScreen).supportFragmentManager.fragments
+            for (fragment in manager) {
+                if (fragment.isVisible && fragment is PlaylistsFragment){
+                    fragment.updatePlaylists()
+                    fragment.mainModel.getPlaylists()
+                }
+            }
+
+
         }
     }
 
