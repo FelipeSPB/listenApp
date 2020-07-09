@@ -1,20 +1,32 @@
 package com.example.listenapp.recycler;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+=======
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+>>>>>>> origin/FeRike
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listenapp.R;
+import com.example.listenapp.main.MainActivity;
+import com.example.listenapp.main.WebViewActivity;
+import com.example.listenapp.model.apimodels.News;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class AdapterNews extends RecyclerView.Adapter<NewsViewHolder> {
 
-    private String[] dataSet;
+    private ArrayList<News> dataSet;
     Activity activity;
 
-    public AdapterNews(String[] dataSet)
+    public AdapterNews(ArrayList<News> dataSet)
     {
         this.dataSet = dataSet;
     }
@@ -31,18 +43,21 @@ public class AdapterNews extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder ViewHolder, int position) {
-        final String nome = dataSet[position];
-        ViewHolder.headline.setText(nome);
-        ViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
+        final News newsItem = dataSet.get(position);
+        Picasso.get().load(newsItem.formatImage()).into(ViewHolder.image);
+        System.out.println(newsItem.formatImage());
+        ViewHolder.headline.setText(newsItem.getHeadline());
+        ViewHolder.cardView.setOnClickListener(Click -> {
+            activity.startActivity(new Intent(activity, WebViewActivity.class)
+                    .putExtra("URL",newsItem.getUrl())
+            );
         });
+
     }
 
     @Override
     public int getItemCount() {
-        return dataSet.length;
+        return dataSet.size();
     }
 }

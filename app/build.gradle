@@ -2,12 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+<<<<<<< HEAD
 apply plugin: 'com.google.gms.google-services'
 
+=======
+>>>>>>> origin/FeRike
 
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
         applicationId "com.example.listenapp"
@@ -19,35 +26,76 @@ android {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/FeRike
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+<<<<<<< HEAD
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+=======
+
+>>>>>>> origin/FeRike
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+<<<<<<< HEAD
     implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "com.google.android.material:material:1.3.0-alpha01"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.gridlayout:gridlayout:1.0.0"
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+=======
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:gridlayout-v7:28.0.0'
+    testImplementation 'junit:junit:4.13'
+    //noinspection GradleCompatible
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.3.72"
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // region RETROFIT && PICASSO
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //endregion
+>>>>>>> origin/FeRike
 
     implementation 'com.google.firebase:firebase-core:17.4.4'
 
     //Facebook
     implementation 'com.facebook.android:facebook-login:5.15.3'
 
+<<<<<<< HEAD
 
     // Firebase Databaseire
     implementation 'com.google.firebase:firebase-database:19.3.1'
@@ -100,3 +148,9 @@ dependencies {
 
 
 }
+=======
+}
+repositories {
+    mavenCentral()
+}
+>>>>>>> origin/FeRike

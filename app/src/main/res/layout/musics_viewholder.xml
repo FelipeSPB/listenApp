@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:layout_margin="5dp">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewMusic"
@@ -18,5 +19,53 @@
         android:textSize="28sp"
         tools:text="Lorem ipsum"/>
     </androidx.cardview.widget.CardView>
+=======
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="5dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewMusic"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:id="@+id/cardViewMusic_imageField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:background="@tools:sample/avatars"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center|bottom"
+            android:background="@color/black_A85">
+
+            <TextView
+                android:id="@+id/cardViewMusic_textField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:elevation="5dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:maxLines="1"
+                tools:text="Lorem ipsum"/>
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/fav_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="5dp"
+            android:src="@drawable/ic_favorite"
+            android:layout_gravity="top|end"/>
+
+    </android.support.v7.widget.CardView>
+>>>>>>> origin/FeRike
 
 </FrameLayout>
