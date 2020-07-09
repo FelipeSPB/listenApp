@@ -7,9 +7,6 @@ import com.example.listenapp.custom.toJsonArray
 import com.example.listenapp.custom.toObjekts
 import kotlinx.android.parcel.Parcelize
 
-@Update
-
-
 @Parcelize
 @Entity(tableName = "playlists")
 data class Playlist(
@@ -34,7 +31,7 @@ data class Playlist(
     var musicList:ArrayList<Music> = ArrayList()
 
     fun setList(){
-        musicList.add(Music("name", "", "url"))
+        //musicList.add(Music("name", "", "url"))
         musics = musicList.toJsonArray()
     }
 
