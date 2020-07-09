@@ -33,12 +33,13 @@ class ProfileFragmentKT: FragBind<FragmentProfileBinding>() {
         suggested_songs_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
         edit_profile_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
         friends_list_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
-        about_btn.setOnClickListener(View.OnClickListener {
-            activity.launchActivity(AboutAppActivity::class.java)
-        })
+        about_btn.setOnClickListener {
+            activity?.launchActivity(AboutAppActivity::class.java)
+        }
 
-        sign_out_btn.setOnClickListener(View.OnClickListener {
-            activity.launchActivity(MainActivity::class.java)})
+        sign_out_btn.setOnClickListener {
+            activity?.launchActivity(MainActivity::class.java)
+        }
     }
 
 }
