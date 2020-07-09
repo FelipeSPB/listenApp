@@ -29,6 +29,7 @@
         <activity android:name=".main.MainActivity" />
         <activity android:name=".main.WebViewActivity" />
         <activity android:name=".main.AboutAppActivity"/>
+        <activity android:name=".main.EditProfileActivity"/>
 
     </application>
 

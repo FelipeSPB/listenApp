@@ -16,7 +16,7 @@ class MusicViewHolder extends RecyclerView.ViewHolder {
 
     public MusicViewHolder(View layout) {
         super(layout);
-        artistName = layout.findViewById(R.id.cardViewMusic_textField);
+        //artistName = layout.findViewById(R.id.cardViewMusic_textField);
         cardViewMusic = layout.findViewById(R.id.cardViewMusic);
         artistImage = layout.findViewById(R.id.cardViewMusic_imageField);
     }

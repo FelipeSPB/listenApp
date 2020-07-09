@@ -35,4 +35,7 @@
         Jotaro: I can\'t beat the shit out of you without getting closer !
        </string>
     <string name="back_btn">Voltar</string>
+    <string name="name_alter_hint">Insira seu nome. Ex: Sasaki Kojirou</string>
+    <string name="escolher_imagem_edit">Carregue sua Imagem</string>
+    <string name="confirmar_btn_edit">Confirmar Alteração</string>
 </resources>

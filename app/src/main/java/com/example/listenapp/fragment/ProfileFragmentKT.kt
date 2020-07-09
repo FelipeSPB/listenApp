@@ -7,6 +7,7 @@ import android.widget.*
 import base.FragBind
 import com.example.listenapp.databinding.FragmentProfileBinding
 import com.example.listenapp.main.AboutAppActivity
+import com.example.listenapp.main.EditProfileActivity
 import com.example.listenapp.main.MainActivity
 import com.example.listenapp.viewmodel.ViewModelProfile
 import custom.launchActivity
@@ -31,7 +32,9 @@ class ProfileFragmentKT: FragBind<FragmentProfileBinding>() {
     private fun setListeners(){
         val textPatternButton = "A implementar"
         suggested_songs_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
-        edit_profile_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
+        edit_profile_btn.setOnClickListener{
+            activity.launchActivity(EditProfileActivity::class.java)
+        }
         friends_list_btn.setOnClickListener{ Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show() }
         about_btn.setOnClickListener(View.OnClickListener {
             activity.launchActivity(AboutAppActivity::class.java)

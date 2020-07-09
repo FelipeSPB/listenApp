@@ -18,7 +18,7 @@ class ItemViewMusic : ItemViewBuilder<Artist, MusicsViewholderBinding>() {
         
         (collection as ArrayList<Artist>).elementAt(position).run {
             binding.cardViewMusicImageField.setImageFromURL("http://www.vagalume.com.br/" + formatName() + "/images/profile.jpg")
-            binding.cardViewMusicTextField.text = name
+            //binding.cardViewMusicTextField.text = name
             binding.cardViewMusic.onClick{
                 activity.launchActivity(WebViewActivity::class.java){
                     putString("URL", url)
