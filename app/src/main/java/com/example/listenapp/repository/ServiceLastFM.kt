@@ -1,7 +1,7 @@
 package com.example.listenapp.repository
 
 import com.example.listenapp.model.apimodels.GeoTopArtitstsResponse
-import com.example.listenapp.model.apimodels.GetTopTracksResponse
+import com.example.listenapp.model.apimodels.GeoTopTracksResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -20,7 +20,7 @@ interface ServiceLastFM {
             format: String
     ): GeoTopArtitstsResponse
 
-    @GET("?method=geo.getTopTracks")
+    @GET("?method=geo.gettoptracks")
     suspend fun getGeoTopTracks(
             @Query("api_key")
             apikey: String,
@@ -28,7 +28,7 @@ interface ServiceLastFM {
             country: String,
             @Query("format")
             format: String
-    ): GetTopTracksResponse
+    ): GeoTopTracksResponse
 
 
 }

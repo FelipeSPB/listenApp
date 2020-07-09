@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @SuppressLint("ParcelCreator")
 @Parcelize
-data class GetTopTracksResponse(
-    @SerializedName("toptracks")
-    val toptracks: Toptracks
-) : Parcelable
+data class AttrRank (
+        @SerializedName("rank")
+        val name: String
+): Parcelable

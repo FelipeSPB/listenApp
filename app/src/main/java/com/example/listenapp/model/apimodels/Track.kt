@@ -11,6 +11,8 @@ import custom.normalize
 data class Track(
         @SerializedName("name")
         val name: String,
+        @SerializedName("duration")
+        val duration: String,
         @SerializedName("playcount")
         val listeners: String,
         @SerializedName("mbid")
@@ -18,11 +20,13 @@ data class Track(
         @SerializedName("url")
         val url: String,
         @SerializedName("streamable")
-        val streamable: String,
+        val streamable: Streamable,
         @SerializedName("artist")
-        val artist: Artist,
+        val artist: ArtistTrack,
         @SerializedName("image")
-        val image: List<Image>
+        val image: List<Image>,
+        @SerializedName("@attr")
+        val attr : AttrRank
 ) : Parcelable{
     fun formatName(): String {
         return name.replace(" ","-").replace("+","and").toLowerCase().normalize()

@@ -15,8 +15,10 @@ import custom.viewModel
 
 class MusicFragmentKT :FragBind<FragmentMusicBinding>(){
 
+
     override val binding: FragmentMusicBinding by viewBind()
     private val viewModel by lazy { viewModel<ViewModelMusic>() }
+
 
     var artistSet = ArrayList<Artist>()
     var pagina = 1

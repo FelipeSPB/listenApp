@@ -1,6 +1,8 @@
 package com.example.listenapp.fragment;
 
 import android.app.Activity;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +35,7 @@ public class ProfileFragment extends Fragment {
     LinearLayout dropdownAbout;
     Boolean buttonAboutAppWasClicked = false;
     ViewModelProfile viewModelProfile;
+    String faixa;
 
 
     public ProfileFragment() {
@@ -55,6 +58,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModelProfile = ViewModelProviders.of(this).get(ViewModelProfile.class);
+        viewModelProfile.getTopTrack();
         findViews();
         setListeners();
     }
@@ -72,12 +76,14 @@ public class ProfileFragment extends Fragment {
         dropdownAbout = view.findViewById(R.id.dropdown_about_listen_app);
     }
 
+
+
     private void setListeners(){
         String textPatternButton = "A implementar";
         suggestedSongs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, textPatternButton, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,faixa, Toast.LENGTH_SHORT).show();
             }
         });
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -108,5 +114,7 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
+
 
 }
