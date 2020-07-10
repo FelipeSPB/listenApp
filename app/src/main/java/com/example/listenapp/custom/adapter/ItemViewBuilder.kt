@@ -1,11 +1,11 @@
 package com.example.listenapp.custom.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.viewbinding.ViewBinding
+import androidx.viewbinding.ViewBinding
 
 import com.example.listenapp.custom.IContext
 import custom.activity

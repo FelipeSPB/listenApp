@@ -1,31 +1,25 @@
 package com.example.listenapp.fragment;
-
 import android.app.Activity;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.listenapp.R;
 import com.example.listenapp.main.AboutAppActivity;
 import com.example.listenapp.main.LoginActivity;
-import com.example.listenapp.main.MainScreen;
-import com.example.listenapp.main.NewAccountActivity;
 import com.example.listenapp.viewmodel.ViewModelProfile;
 
 public class ProfileFragment extends Fragment {
@@ -118,7 +112,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Activity activity = (Activity) view.getContext();
-                activity.startActivity(new Intent(activity, NewAccountActivity.class));
+                activity.startActivity(new Intent(activity, LoginActivity.class));
             }
         });
     }

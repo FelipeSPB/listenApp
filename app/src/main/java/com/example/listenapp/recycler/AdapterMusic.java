@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listenapp.R;
 
+import java.util.ArrayList;
+
 public class AdapterMusic extends RecyclerView.Adapter<MusicViewHolder> {
     ArrayList<Artist> dataSet;
     Activity activity;

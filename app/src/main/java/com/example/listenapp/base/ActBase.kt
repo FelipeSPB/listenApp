@@ -1,9 +1,10 @@
 package base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+
 import com.example.listenapp.custom.IContext
 
 open class ActBase(open val layout: Int = 0) : AppCompatActivity(), IPermissionResult, IContext {

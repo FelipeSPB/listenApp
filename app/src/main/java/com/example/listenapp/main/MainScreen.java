@@ -3,15 +3,14 @@ package com.example.listenapp.main;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.listenapp.R;
 import com.example.listenapp.custom.ConfirmationDialog;
@@ -19,8 +18,8 @@ import com.example.listenapp.fragment.MusicFragmentKT;
 import com.example.listenapp.fragment.NewsFragment;
 import com.example.listenapp.fragment.PlaylistsFragment;
 import com.example.listenapp.fragment.ProfileFragment;
-import com.example.listenapp.repository.RepositoryDatabase;
 import com.example.listenapp.fragment.ProfileFragmentKT;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainScreen extends AppCompatActivity {

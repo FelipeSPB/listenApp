@@ -1,34 +1,31 @@
 package com.example.listenapp.fragment;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.OnFlingListener;
 import androidx.recyclerview.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.listenapp.R;
 import com.example.listenapp.model.apimodels.Artist;
-import com.example.listenapp.model.apimodels.Hotspot;
 import com.example.listenapp.model.apimodels.News;
 import com.example.listenapp.recycler.AdapterHot;
 import com.example.listenapp.recycler.AdapterNews;
 import com.example.listenapp.viewmodel.ViewModelNews;
-import com.example.listenapp.viewmodel.ViewModelPlaylist;
+
 
 import java.util.ArrayList;
-import java.util.Set;
+
 
 public class NewsFragment extends Fragment{
 
@@ -42,21 +39,8 @@ public class NewsFragment extends Fragment{
     AdapterNews adapterNews;
     ArrayList<Artist> hotSpot = new ArrayList<>();
     ArrayList<News> news = new ArrayList<>();
-    String[] dataSet = {
-            "Rafinha",
-            "Henrique",
-            "Xandão",
-            "Daniel",
-            "Peter Henry",
-            "404",
-            "Giulia",
-            "Lucas",
-            "Eduardo",
-            "Sandro",
-            "Felipe",
-            "Gabriel"};
-    SnapHelper helper;
 
+    SnapHelper helper;
 
     public NewsFragment() {
     }
@@ -92,6 +76,7 @@ public class NewsFragment extends Fragment{
 
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     private void loadAPI() {
         mainModel.getNewsSet().observe(fragment, hotspots -> {
             hotSpot.addAll(hotspots);
@@ -115,13 +100,13 @@ public class NewsFragment extends Fragment{
         layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         adapterHot = new AdapterHot(hotSpot);
         hotNews.setLayoutManager(layoutManager);
-        hotNews.setAdapter((RecyclerView.Adapter) AdapterHot);
+        hotNews.setAdapter(adapterHot);
         helper = new PagerSnapHelper();
         helper.attachToRecyclerView(hotNews);
         layoutManagerNews = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         adapterNews = new AdapterNews(news);
         recyclerNews.setLayoutManager(layoutManagerNews);
-        recyclerNews.setAdapter((RecyclerView.Adapter) AdapterNews);
+        recyclerNews.setAdapter(adapterNews);
     }
 
 }

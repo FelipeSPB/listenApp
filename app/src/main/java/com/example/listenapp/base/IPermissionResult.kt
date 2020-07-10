@@ -1,8 +1,8 @@
 package base
 
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.support.v4.app.ActivityCompat.requestPermissions
-import android.support.v4.content.ContextCompat.checkSelfPermission
+import androidx.core.app.ActivityCompat.requestPermissions
+import androidx.core.content.ContextCompat.checkSelfPermission
 
 import com.example.listenapp.custom.IContext
 

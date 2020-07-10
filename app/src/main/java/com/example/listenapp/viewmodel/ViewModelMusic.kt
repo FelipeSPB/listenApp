@@ -2,8 +2,8 @@ package com.example.listenapp.viewmodel
 
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import android.util.Log
 import com.example.listenapp.model.apimodels.Track
 import com.example.listenapp.repository.RepositoryDatabase
@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import java.lang.Exception
+
 
 
 class ViewModelMusic(application: Application) : AndroidViewModel(application) {

@@ -1,19 +1,25 @@
 package com.example.listenapp.fragment;
 
-import android.arch.lifecycle.ViewModelProviders;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.listenapp.R;
+import com.example.listenapp.model.apimodels.Artist;
 import com.example.listenapp.recycler.AdapterMusic;
+import com.example.listenapp.viewmodel.ViewModelMusic;
+
+import java.util.ArrayList;
 
 
 public class MusicFragment extends Fragment {
@@ -62,6 +68,7 @@ public class MusicFragment extends Fragment {
         recyclerSetup();
         loadAPI();
     }
+    @SuppressLint("FragmentLiveDataObserve")
     private void loadAPI() {
         mainModel.getTracks().observe(fragment, artists -> {
             //artistSet.addAll(artists);
@@ -79,7 +86,7 @@ public class MusicFragment extends Fragment {
         layoutManager = new GridLayoutManager(context, 2);
         adapterMusic = new AdapterMusic(artistSet);
         musicRecycler.setLayoutManager(layoutManager);
-        musicRecycler.setAdapter((RecyclerView.Adapter) AdapterMusic);
+        musicRecycler.setAdapter(adapterMusic);
     }
 
 }

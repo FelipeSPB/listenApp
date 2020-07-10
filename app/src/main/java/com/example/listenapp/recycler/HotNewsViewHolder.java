@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.listenapp.R;
 
-public class HotNewsViewHolder<CardView> extends RecyclerView.ViewHolder {
+public class HotNewsViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewContent;
     public ImageView newsImage;
     public CardView cardView;
@@ -18,7 +18,7 @@ public class HotNewsViewHolder<CardView> extends RecyclerView.ViewHolder {
         textViewContent = layout.findViewById(R.id.cardView_textField);
         cardView = layout.findViewById(R.id.cardView);
         newsImage = layout.findViewById(R.id.hotnews_image);
-        cardView = (CardView) layout.findViewById(R.id.cardView);
+
 
     }
 }

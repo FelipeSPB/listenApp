@@ -1,18 +1,19 @@
 package com.example.listenapp.fragment
 
-import android.arch.lifecycle.Observer
+
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import base.FragBind
 import com.example.listenapp.databinding.FragmentProfileBinding
 import com.example.listenapp.main.AboutAppActivity
-import com.example.listenapp.main.MainActivity
+import com.example.listenapp.main.LoginActivity
 import com.example.listenapp.viewmodel.ViewModelProfile
 import custom.launchActivity
+
 import custom.viewBind
 import custom.viewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
+
 
 class ProfileFragmentKT: FragBind<FragmentProfileBinding>() {
 
@@ -38,7 +39,7 @@ class ProfileFragmentKT: FragBind<FragmentProfileBinding>() {
         }
 
         sign_out_btn.setOnClickListener {
-            activity?.launchActivity(MainActivity::class.java)
+            activity?.launchActivity(LoginActivity::class.java)
         }
     }
 
