@@ -12,6 +12,7 @@ import com.example.listenapp.main.WebViewActivity
 import com.example.listenapp.model.Music
 import com.example.listenapp.model.MusicPlaylist
 import com.example.listenapp.model.Playlist
+import com.example.listenapp.model.apimodels.Artist
 import com.example.listenapp.model.apimodels.Track
 import com.example.listenapp.repository.RepositoryDatabase
 import custom.*
@@ -22,22 +23,10 @@ class ItemViewMusic : ItemViewBuilder<Track, MusicsViewholderBinding>() {
     override val binding: MusicsViewholderBinding by viewBind()
 
     override fun MusicsViewholderBinding.onBind(position: Int) {
-<<<<<<< HEAD
-        
-        (collection as ArrayList<Artist>).elementAt(position).run {
-            binding.cardViewMusicImageField.setImageFromURL("http://www.vagalume.com.br/" + formatName() + "/images/profile.jpg")
-            //binding.cardViewMusicTextField.text = name
-            binding.cardViewMusic.onClick{
-                activity.launchActivity(WebViewActivity::class.java){
-=======
-
         (collection as ArrayList<Track>).elementAt(position).run {
             cardViewMusicImageField.setImageFromURLwError("http://www.vagalume.com.br/" + artist.formatName() + "/images/profile.jpg",
                     R.drawable.ic_vinyl_record)
             cardViewMusicTextField.text = name
-
-
-
             favButton.onClick {
                 val list = RepositoryDatabase(context).getAccessPlay().all
                 val music = Music(name, "", url)
@@ -64,14 +53,11 @@ class ItemViewMusic : ItemViewBuilder<Track, MusicsViewholderBinding>() {
                     }
                 }
             }
-
             cardViewMusic.onClick {
                 act.launchActivity(WebViewActivity::class.java) {
->>>>>>> FeRike
                     putString("URL", url)
                 }
             }
         }
     }
-
 }

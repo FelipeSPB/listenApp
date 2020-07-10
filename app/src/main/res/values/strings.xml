@@ -40,5 +40,8 @@
 // facebook
     <string name="facebook_app_id">752894998585956</string>
     <string name="fb_login_protocol_scheme">fb752894998585956</string>
+    <string name="escolher_imagem_edit">Escolha uma imagem.</string>
+    <string name="name_alter_hint">Alterar nome</string>
+    <string name="confirmar_btn_edit">Confirmar</string>
 
 </resources>

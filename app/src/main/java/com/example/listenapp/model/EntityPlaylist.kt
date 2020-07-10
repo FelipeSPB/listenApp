@@ -1,11 +1,10 @@
-package dbroomkt
+package com.example.listenapp.model
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.listenapp.R
-import com.example.listenapp.model.Music
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
