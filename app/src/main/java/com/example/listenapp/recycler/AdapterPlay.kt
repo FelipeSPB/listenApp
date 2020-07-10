@@ -19,6 +19,8 @@ import com.example.listenapp.model.Playlist
 import com.example.listenapp.repository.RepositoryDatabase
 import custom.VerticalRecycler
 import custom.onClick
+import dbroomkt.EntityPlaylist
+import dbroomkt.ParcelPlaylist
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -48,6 +50,17 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
                 musicList.add(Music("Prepara","", ""))
                 musicList.add(Music("Tiro Porrada e Bomba","", ""))
                 musicList.add(Music("We are number one","", ""))
+              /*  val repository = RepositoryDatabase(context)
+                val listRoom by lazy { repository.getAccessPlay().all }
+                listRoom.forEach{
+                    val parcelPlaylist = ParcelPlaylist(
+                            uid = it.uid,
+                            playlistName = it.playlistName,
+                            quantity = it.quantity,
+                            playlistImage = it.playlistImage,
+                            collection = it.
+                    )
+                }*/
                 val adapter = recyclerAdapter<ItemViewFavorites>(musicList)
 
                 recycler?.adapter = adapter
