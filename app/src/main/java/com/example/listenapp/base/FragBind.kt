@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.viewbinding.ViewBinding
+import androidx.viewbinding.ViewBinding
 
 
 abstract class FragBind<T : ViewBinding> : FragBase() {

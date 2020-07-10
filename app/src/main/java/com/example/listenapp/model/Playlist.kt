@@ -1,7 +1,11 @@
 package com.example.listenapp.model
 
-import android.arch.persistence.room.*
+
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.example.listenapp.R
 import com.example.listenapp.custom.toJsonArray
 import com.example.listenapp.custom.toObjekts

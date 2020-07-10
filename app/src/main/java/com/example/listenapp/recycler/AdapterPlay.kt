@@ -1,9 +1,8 @@
 package com.example.listenapp.recycler
 
 import android.app.Activity
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -11,17 +10,14 @@ import android.widget.ImageView
 import com.example.listenapp.R
 import com.example.listenapp.custom.newPanel
 import com.example.listenapp.custom.recyclerAdapter
-import com.example.listenapp.custom.toJsonArray
 import com.example.listenapp.fragment.PlaylistsFragment
 import com.example.listenapp.main.MainScreen
 import com.example.listenapp.model.Music
 import com.example.listenapp.model.Playlist
+
 import com.example.listenapp.repository.RepositoryDatabase
 import custom.VerticalRecycler
 import custom.onClick
-import dbroomkt.EntityPlaylist
-import dbroomkt.ParcelPlaylist
-import java.util.*
 import kotlin.collections.ArrayList
 
 class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<PlaylistsViewHolder>(), Filterable {
@@ -50,17 +46,6 @@ class AdapterPlay(dataSet: ArrayList<Playlist>) : RecyclerView.Adapter<Playlists
                 musicList.add(Music("Prepara","", ""))
                 musicList.add(Music("Tiro Porrada e Bomba","", ""))
                 musicList.add(Music("We are number one","", ""))
-              /*  val repository = RepositoryDatabase(context)
-                val listRoom by lazy { repository.getAccessPlay().all }
-                listRoom.forEach{
-                    val parcelPlaylist = ParcelPlaylist(
-                            uid = it.uid,
-                            playlistName = it.playlistName,
-                            quantity = it.quantity,
-                            playlistImage = it.playlistImage,
-                            collection = it.
-                    )
-                }*/
                 val adapter = recyclerAdapter<ItemViewFavorites>(musicList)
 
                 recycler?.adapter = adapter

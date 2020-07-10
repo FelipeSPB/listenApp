@@ -1,9 +1,9 @@
+@file:Suppress("DEPRECATION")
+
 package custom
 
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Context.MODE_PRIVATE
@@ -12,25 +12,27 @@ import android.content.Intent
 import android.content.res.Resources.getSystem
 import android.os.Bundle
 import android.os.Parcelable
-import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.viewbinding.ViewBinding
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.example.listenapp.R
 import com.example.listenapp.custom.IContext
 import com.example.listenapp.custom.RecyclerAdapter
-import com.example.listenapp.custom.recyclerAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
 import com.example.listenapp.custom.adapter.ItemViewBuilder
+import com.example.listenapp.custom.recyclerAdapter
 import java.io.*
 import java.text.Normalizer
 import kotlin.reflect.KClass

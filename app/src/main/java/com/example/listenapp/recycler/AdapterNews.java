@@ -1,15 +1,16 @@
 package com.example.listenapp.recycler;
 
 import android.app.Activity;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listenapp.R;
-import com.example.listenapp.main.MainActivity;
 import com.example.listenapp.main.WebViewActivity;
 import com.example.listenapp.model.apimodels.News;
 import com.squareup.picasso.Picasso;

@@ -1,8 +1,10 @@
 package com.example.listenapp.fragment
 
 
-import android.arch.lifecycle.Observer
+
 import android.os.Bundle
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import base.FragBind
 import com.example.listenapp.custom.recyclerAdapter
 import com.example.listenapp.databinding.FragmentMusicBinding
@@ -10,14 +12,13 @@ import com.example.listenapp.model.apimodels.Track
 import com.example.listenapp.recycler.ItemViewMusic
 import com.example.listenapp.viewmodel.ViewModelMusic
 import custom.viewBind
-import custom.viewModel
+
 
 
 class MusicFragmentKT :FragBind<FragmentMusicBinding>(){
 
     override val binding: FragmentMusicBinding by viewBind()
-    private val viewModel by lazy { viewModel<ViewModelMusic>() }
-
+    private val viewModel:ViewModelMusic by viewModels()
     var trackSet = ArrayList<Track>()
     var pagina = 1
     var totalPaginas = 30

@@ -22,6 +22,14 @@ class ItemViewMusic : ItemViewBuilder<Track, MusicsViewholderBinding>() {
     override val binding: MusicsViewholderBinding by viewBind()
 
     override fun MusicsViewholderBinding.onBind(position: Int) {
+<<<<<<< HEAD
+        
+        (collection as ArrayList<Artist>).elementAt(position).run {
+            binding.cardViewMusicImageField.setImageFromURL("http://www.vagalume.com.br/" + formatName() + "/images/profile.jpg")
+            //binding.cardViewMusicTextField.text = name
+            binding.cardViewMusic.onClick{
+                activity.launchActivity(WebViewActivity::class.java){
+=======
 
         (collection as ArrayList<Track>).elementAt(position).run {
             cardViewMusicImageField.setImageFromURLwError("http://www.vagalume.com.br/" + artist.formatName() + "/images/profile.jpg",
@@ -59,6 +67,7 @@ class ItemViewMusic : ItemViewBuilder<Track, MusicsViewholderBinding>() {
 
             cardViewMusic.onClick {
                 act.launchActivity(WebViewActivity::class.java) {
+>>>>>>> FeRike
                     putString("URL", url)
                 }
             }
