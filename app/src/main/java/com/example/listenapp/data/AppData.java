@@ -1,7 +1,8 @@
 package com.example.listenapp.data;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 import com.example.listenapp.data.dao.AccessPlay;
 import com.example.listenapp.model.Playlist;

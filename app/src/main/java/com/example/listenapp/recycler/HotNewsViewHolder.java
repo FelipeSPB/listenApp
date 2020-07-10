@@ -1,7 +1,7 @@
 package com.example.listenapp.recycler;
 
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,5 +18,7 @@ public class HotNewsViewHolder extends RecyclerView.ViewHolder {
         textViewContent = layout.findViewById(R.id.cardView_textField);
         cardView = layout.findViewById(R.id.cardView);
         newsImage = layout.findViewById(R.id.hotnews_image);
+
+
     }
 }

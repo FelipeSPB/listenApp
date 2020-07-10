@@ -1,7 +1,8 @@
 package base
 
 import android.os.Bundle
-import android.viewbinding.ViewBinding
+import androidx.viewbinding.ViewBinding
+
 
 abstract class ActBind<Binding : ViewBinding> : ActBase() {
 

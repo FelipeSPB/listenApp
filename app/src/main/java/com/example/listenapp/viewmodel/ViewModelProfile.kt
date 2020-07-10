@@ -1,9 +1,10 @@
 package com.example.listenapp.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import android.widget.ImageView
 import android.widget.TextView
+
 import com.example.listenapp.R
 
 class ViewModelProfile(application: Application) : AndroidViewModel(application) {

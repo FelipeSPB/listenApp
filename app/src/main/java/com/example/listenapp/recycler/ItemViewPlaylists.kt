@@ -1,10 +1,9 @@
 package com.example.listenapp.recycler
 
-import android.support.v7.widget.RecyclerView
-import android.view.ViewGroup
+
+
 import android.widget.Toast
 import com.example.listenapp.databinding.PlaylistsAddViewholderBinding
-import com.example.listenapp.model.Playlist
 import custom.*
 import com.example.listenapp.custom.adapter.ItemViewBuilder
 import com.example.listenapp.model.MusicPlaylist
